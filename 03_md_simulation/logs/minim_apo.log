@@ -1,0 +1,4279 @@
+                      :-) GROMACS - gmx mdrun, 2023.2 (-:
+
+Copyright 1991-2023 The GROMACS Authors.
+GROMACS is free software; you can redistribute it and/or modify it
+under the terms of the GNU Lesser General Public License
+as published by the Free Software Foundation; either version 2.1
+of the License, or (at your option) any later version.
+
+                         Current GROMACS contributors:
+       Mark Abraham           Andrey Alekseenko           Cathrine Bergh      
+      Christian Blau            Eliane Briand             Mahesh Doijade      
+    Stefan Fleischmann           Vytas Gapsys              Gaurav Garg        
+      Sergey Gorelov         Gilles Gouaillardet            Alan Gray         
+     M. Eric Irrgang         Farzaneh Jalalypour            Joe Jordan        
+    Christoph Junghans        Prashanth Kanduri          Sebastian Keller     
+     Carsten Kutzner           Justin A. Lemkul          Magnus Lundborg      
+       Pascal Merz              Vedran Miletic            Dmitry Morozov      
+       Szilard Pall             Roland Schulz             Michael Shirts      
+     Alexey Shvetsov            Balint Soproni         David van der Spoel    
+      Philip Turner             Carsten Uphoff           Alessandra Villa     
+ Sebastian Wingbermuehle        Artem Zhmurov       
+
+                         Previous GROMACS contributors:
+        Emile Apol             Rossen Apostolov           James Barnett       
+  Herman J.C. Berendsen          Par Bjelkmar           Viacheslav Bolnykh    
+        Kevin Boyd            Aldert van Buuren          Carlo Camilloni      
+     Rudi van Drunen            Anton Feenstra           Oliver Fleetwood     
+     Gerrit Groenhof            Bert de Groot             Anca Hamuraru       
+    Vincent Hindriksen          Victor Holanda           Aleksei Iupinov      
+   Dimitrios Karkoulis           Peter Kasson             Sebastian Kehl      
+        Jiri Kraus               Per Larsson              Viveca Lindahl      
+      Erik Marklund           Pieter Meulenhoff           Teemu Murtola       
+       Sander Pronk             Alfons Sijbers            Peter Tieleman      
+       Jon Vincent             Teemu Virolainen         Christian Wennberg    
+       Maarten Wolf       
+
+                  Coordinated by the GROMACS project leaders:
+                    Paul Bauer, Berk Hess, and Erik Lindahl
+
+GROMACS:      gmx mdrun, version 2023.2
+Executable:   /gpfs/spack/opt/linux-rocky8-icelake/gcc-9.5.0/gromacs-2023.2-jzxeselj2n5xcx3uozwap5zgemorxohk/bin/gmx_mpi
+Data prefix:  /gpfs/spack/opt/linux-rocky8-icelake/gcc-9.5.0/gromacs-2023.2-jzxeselj2n5xcx3uozwap5zgemorxohk
+Working dir:  /gpfs/work/bio/haidongliu21/Protein_BSA_3V03_A
+Process ID:   798476
+Command line:
+  gmx_mpi mdrun -v -deffnm em
+
+GROMACS version:    2023.2
+Precision:          mixed
+Memory model:       64 bit
+MPI library:        MPI
+OpenMP support:     enabled (GMX_OPENMP_MAX_THREADS = 128)
+GPU support:        CUDA
+NB cluster size:    8
+SIMD instructions:  AVX_512
+CPU FFT library:    Intel MKL version 2020.0.4 Build 20200917
+GPU FFT library:    cuFFT
+Multi-GPU FFT:      none
+RDTSCP usage:       enabled
+TNG support:        enabled
+Hwloc support:      hwloc-2.9.1
+Tracing support:    disabled
+C compiler:         /gpfs/spack/lib/spack/env/gcc/gcc GNU 9.5.0
+C compiler flags:   -fexcess-precision=fast -funroll-all-loops -mavx512f -mfma -mavx512vl -mavx512dq -mavx512bw -Wno-missing-field-initializers -O3 -DNDEBUG
+C++ compiler:       /gpfs/spack/lib/spack/env/gcc/g++ GNU 9.5.0
+C++ compiler flags: -fexcess-precision=fast -funroll-all-loops -mavx512f -mfma -mavx512vl -mavx512dq -mavx512bw -Wno-missing-field-initializers -Wno-cast-function-type-strict -fopenmp -O3 -DNDEBUG
+BLAS library:       
+LAPACK library:     
+CUDA compiler:      /gpfs/spack/opt/linux-rocky8-icelake/gcc-8.5.0/cuda-11.8.0-d7ndetl37whnbus6tfepot2dzs35dgmh/bin/nvcc nvcc: NVIDIA (R) Cuda compiler driver;Copyright (c) 2005-2022 NVIDIA Corporation;Built on Wed_Sep_21_10:33:58_PDT_2022;Cuda compilation tools, release 11.8, V11.8.89;Build cuda_11.8.r11.8/compiler.31833905_0
+CUDA compiler flags:-std=c++17;--generate-code=arch=compute_35,code=sm_35;--generate-code=arch=compute_37,code=sm_37;--generate-code=arch=compute_50,code=sm_50;--generate-code=arch=compute_52,code=sm_52;--generate-code=arch=compute_60,code=sm_60;--generate-code=arch=compute_61,code=sm_61;--generate-code=arch=compute_70,code=sm_70;--generate-code=arch=compute_75,code=sm_75;--generate-code=arch=compute_80,code=sm_80;--generate-code=arch=compute_86,code=sm_86;--generate-code=arch=compute_89,code=sm_89;--generate-code=arch=compute_90,code=sm_90;-Wno-deprecated-gpu-targets;--generate-code=arch=compute_53,code=sm_53;--generate-code=arch=compute_80,code=sm_80;-use_fast_math;-Xptxas;-warn-double-usage;-Xptxas;-Werror;-D_FORCE_INLINES;-fexcess-precision=fast -funroll-all-loops -mavx512f -mfma -mavx512vl -mavx512dq -mavx512bw -Wno-missing-field-initializers -Wno-cast-function-type-strict -fopenmp -O3 -DNDEBUG
+CUDA driver:        0.0
+CUDA runtime:       N/A
+
+
+Running on 1 node with total 24 cores, 48 processing units (GPU detection failed)
+Hardware detected on host xpszlogin2 (the node of MPI rank 0):
+  CPU info:
+    Vendor: Intel
+    Brand:  Intel(R) Xeon(R) Silver 4310 CPU @ 2.10GHz
+    Family: 6   Model: 106   Stepping: 6
+    Features: aes apic avx avx2 avx512f avx512cd avx512bw avx512vl avx512secondFMA clfsh cmov cx8 cx16 f16c fma htt intel lahf mmx msr nonstop_tsc pcid pclmuldq pdcm pdpe1gb popcnt pse rdrnd rdtscp sha sse2 sse3 sse4.1 sse4.2 ssse3 tdt x2apic
+    Number of AVX-512 FMA units: 2
+  Hardware topology: Full, with devices
+    Packages, cores, and logical processors:
+    [indices refer to OS logical processors]
+      Package  0: [   0  24] [   1  25] [   2  26] [   3  27] [   4  28] [   5  29] [   6  30] [   7  31] [   8  32] [   9  33] [  10  34] [  11  35]
+      Package  1: [  12  36] [  13  37] [  14  38] [  15  39] [  16  40] [  17  41] [  18  42] [  19  43] [  20  44] [  21  45] [  22  46] [  23  47]
+    CPU limit set by OS: -1   Recommended max number of threads: 48
+    Numa nodes:
+      Node  0 (66940252160 bytes mem):   0  24   1  25   2  26   3  27   4  28   5  29   6  30   7  31   8  32   9  33  10  34  11  35
+      Node  1 (67593453568 bytes mem):  12  36  13  37  14  38  15  39  16  40  17  41  18  42  19  43  20  44  21  45  22  46  23  47
+      Latency:
+               0     1
+         0  1.00  2.00
+         1  2.00  1.00
+    Caches:
+      L1: 49152 bytes, linesize 64 bytes, assoc. 12, shared 2 ways
+      L2: 1310720 bytes, linesize 64 bytes, assoc. 20, shared 2 ways
+      L3: 18874368 bytes, linesize 64 bytes, assoc. 12, shared 24 ways
+    PCI devices:
+      0000:00:11.5  Id: 8086:a1d2  Class: 0x0106  Numa: 0
+      0000:00:17.0  Id: 8086:a182  Class: 0x0106  Numa: 0
+      0000:04:00.0  Id: 1a03:2000  Class: 0x0300  Numa: 0
+      0000:17:00.0  Id: 8086:1572  Class: 0x0200  Numa: 0
+      0000:17:00.1  Id: 8086:1572  Class: 0x0200  Numa: 0
+      0000:31:00.0  Id: 9005:028f  Class: 0x0107  Numa: 0
+      0000:b1:00.0  Id: 15b3:101b  Class: 0x0207  Numa: 1
+      0000:b1:00.1  Id: 15b3:101b  Class: 0x0207  Numa: 1
+      0000:ca:00.0  Id: 8086:1521  Class: 0x0200  Numa: 1
+      0000:ca:00.1  Id: 8086:1521  Class: 0x0200  Numa: 1
+
+
+++++ PLEASE READ AND CITE THE FOLLOWING REFERENCE ++++
+M. J. Abraham, T. Murtola, R. Schulz, S. Páll, J. C. Smith, B. Hess, E.
+Lindahl
+GROMACS: High performance molecular simulations through multi-level
+parallelism from laptops to supercomputers
+SoftwareX 1 (2015) pp. 19-25
+-------- -------- --- Thank You --- -------- --------
+
+
+++++ PLEASE READ AND CITE THE FOLLOWING REFERENCE ++++
+S. Páll, M. J. Abraham, C. Kutzner, B. Hess, E. Lindahl
+Tackling Exascale Software Challenges in Molecular Dynamics Simulations with
+GROMACS
+In S. Markidis & E. Laure (Eds.), Solving Software Challenges for Exascale 8759 (2015) pp. 3-27
+-------- -------- --- Thank You --- -------- --------
+
+
+++++ PLEASE READ AND CITE THE FOLLOWING REFERENCE ++++
+S. Pronk, S. Páll, R. Schulz, P. Larsson, P. Bjelkmar, R. Apostolov, M. R.
+Shirts, J. C. Smith, P. M. Kasson, D. van der Spoel, B. Hess, and E. Lindahl
+GROMACS 4.5: a high-throughput and highly parallel open source molecular
+simulation toolkit
+Bioinformatics 29 (2013) pp. 845-54
+-------- -------- --- Thank You --- -------- --------
+
+
+++++ PLEASE READ AND CITE THE FOLLOWING REFERENCE ++++
+B. Hess and C. Kutzner and D. van der Spoel and E. Lindahl
+GROMACS 4: Algorithms for highly efficient, load-balanced, and scalable
+molecular simulation
+J. Chem. Theory Comput. 4 (2008) pp. 435-447
+-------- -------- --- Thank You --- -------- --------
+
+
+++++ PLEASE READ AND CITE THE FOLLOWING REFERENCE ++++
+D. van der Spoel, E. Lindahl, B. Hess, G. Groenhof, A. E. Mark and H. J. C.
+Berendsen
+GROMACS: Fast, Flexible and Free
+J. Comp. Chem. 26 (2005) pp. 1701-1719
+-------- -------- --- Thank You --- -------- --------
+
+
+++++ PLEASE READ AND CITE THE FOLLOWING REFERENCE ++++
+E. Lindahl and B. Hess and D. van der Spoel
+GROMACS 3.0: A package for molecular simulation and trajectory analysis
+J. Mol. Mod. 7 (2001) pp. 306-317
+-------- -------- --- Thank You --- -------- --------
+
+
+++++ PLEASE READ AND CITE THE FOLLOWING REFERENCE ++++
+H. J. C. Berendsen, D. van der Spoel and R. van Drunen
+GROMACS: A message-passing parallel molecular dynamics implementation
+Comp. Phys. Comm. 91 (1995) pp. 43-56
+-------- -------- --- Thank You --- -------- --------
+
+
+++++ PLEASE CITE THE DOI FOR THIS VERSION OF GROMACS ++++
+https://doi.org/10.5281/zenodo.8134397
+-------- -------- --- Thank You --- -------- --------
+
+Input Parameters:
+   integrator                     = steep
+   tinit                          = 0
+   dt                             = 0.001
+   nsteps                         = 500
+   init-step                      = 0
+   simulation-part                = 1
+   mts                            = false
+   comm-mode                      = Linear
+   nstcomm                        = 100
+   bd-fric                        = 0
+   ld-seed                        = -555462934
+   emtol                          = 1
+   emstep                         = 0.01
+   niter                          = 20
+   fcstep                         = 0
+   nstcgsteep                     = 1000
+   nbfgscorr                      = 10
+   rtpi                           = 0.05
+   nstxout                        = 0
+   nstvout                        = 0
+   nstfout                        = 0
+   nstlog                         = 1000
+   nstcalcenergy                  = 100
+   nstenergy                      = 1
+   nstxout-compressed             = 0
+   compressed-x-precision         = 1000
+   cutoff-scheme                  = Verlet
+   nstlist                        = 10
+   pbc                            = xyz
+   periodic-molecules             = false
+   verlet-buffer-tolerance        = 0.005
+   rlist                          = 1.05
+   coulombtype                    = Cut-off
+   coulomb-modifier               = Potential-shift
+   rcoulomb-switch                = 0
+   rcoulomb                       = 1
+   epsilon-r                      = 1
+   epsilon-rf                     = inf
+   vdw-type                       = Cut-off
+   vdw-modifier                   = Potential-shift
+   rvdw-switch                    = 0
+   rvdw                           = 1
+   DispCorr                       = No
+   table-extension                = 1
+   fourierspacing                 = 0.12
+   fourier-nx                     = 0
+   fourier-ny                     = 0
+   fourier-nz                     = 0
+   pme-order                      = 4
+   ewald-rtol                     = 1e-05
+   ewald-rtol-lj                  = 0.001
+   lj-pme-comb-rule               = Geometric
+   ewald-geometry                 = 3d
+   epsilon-surface                = 0
+   ensemble-temperature-setting   = not available
+   ensemble-temperature           = -1
+   tcoupl                         = No
+   nsttcouple                     = -1
+   nh-chain-length                = 0
+   print-nose-hoover-chain-variables = false
+   pcoupl                         = No
+   pcoupltype                     = Isotropic
+   nstpcouple                     = -1
+   tau-p                          = 1
+   compressibility (3x3):
+      compressibility[    0]={ 0.00000e+00,  0.00000e+00,  0.00000e+00}
+      compressibility[    1]={ 0.00000e+00,  0.00000e+00,  0.00000e+00}
+      compressibility[    2]={ 0.00000e+00,  0.00000e+00,  0.00000e+00}
+   ref-p (3x3):
+      ref-p[    0]={ 0.00000e+00,  0.00000e+00,  0.00000e+00}
+      ref-p[    1]={ 0.00000e+00,  0.00000e+00,  0.00000e+00}
+      ref-p[    2]={ 0.00000e+00,  0.00000e+00,  0.00000e+00}
+   refcoord-scaling               = No
+   posres-com (3):
+      posres-com[0]= 0.00000e+00
+      posres-com[1]= 0.00000e+00
+      posres-com[2]= 0.00000e+00
+   posres-comB (3):
+      posres-comB[0]= 0.00000e+00
+      posres-comB[1]= 0.00000e+00
+      posres-comB[2]= 0.00000e+00
+   QMMM                           = false
+qm-opts:
+   ngQM                           = 0
+   constraint-algorithm           = Lincs
+   continuation                   = false
+   Shake-SOR                      = false
+   shake-tol                      = 0.0001
+   lincs-order                    = 4
+   lincs-iter                     = 1
+   lincs-warnangle                = 30
+   nwall                          = 0
+   wall-type                      = 9-3
+   wall-r-linpot                  = -1
+   wall-atomtype[0]               = -1
+   wall-atomtype[1]               = -1
+   wall-density[0]                = 0
+   wall-density[1]                = 0
+   wall-ewald-zfac                = 3
+   pull                           = false
+   awh                            = false
+   rotation                       = false
+   interactiveMD                  = false
+   disre                          = No
+   disre-weighting                = Conservative
+   disre-mixed                    = false
+   dr-fc                          = 1000
+   dr-tau                         = 0
+   nstdisreout                    = 100
+   orire-fc                       = 0
+   orire-tau                      = 0
+   nstorireout                    = 100
+   free-energy                    = no
+   cos-acceleration               = 0
+   deform (3x3):
+      deform[    0]={ 0.00000e+00,  0.00000e+00,  0.00000e+00}
+      deform[    1]={ 0.00000e+00,  0.00000e+00,  0.00000e+00}
+      deform[    2]={ 0.00000e+00,  0.00000e+00,  0.00000e+00}
+   simulated-tempering            = false
+   swapcoords                     = no
+   userint1                       = 0
+   userint2                       = 0
+   userint3                       = 0
+   userint4                       = 0
+   userreal1                      = 0
+   userreal2                      = 0
+   userreal3                      = 0
+   userreal4                      = 0
+   applied-forces:
+     electric-field:
+       x:
+         E0                       = 0
+         omega                    = 0
+         t0                       = 0
+         sigma                    = 0
+       y:
+         E0                       = 0
+         omega                    = 0
+         t0                       = 0
+         sigma                    = 0
+       z:
+         E0                       = 0
+         omega                    = 0
+         t0                       = 0
+         sigma                    = 0
+     density-guided-simulation:
+       active                     = false
+       group                      = protein
+       similarity-measure         = inner-product
+       atom-spreading-weight      = unity
+       force-constant             = 1e+09
+       gaussian-transform-spreading-width = 0.2
+       gaussian-transform-spreading-range-in-multiples-of-width = 4
+       reference-density-filename = reference.mrc
+       nst                        = 1
+       normalize-densities        = true
+       adaptive-force-scaling     = false
+       adaptive-force-scaling-time-constant = 4
+       shift-vector               = 
+       transformation-matrix      = 
+     qmmm-cp2k:
+       active                     = false
+       qmgroup                    = System
+       qmmethod                   = PBE
+       qmfilenames                = 
+       qmcharge                   = 0
+       qmmultiplicity             = 1
+grpopts:
+   nrdf:      654894
+   ref-t:           0
+   tau-t:           0
+annealing:          No
+annealing-npoints:           0
+   acc:	           0           0           0
+   nfreeze:           N           N           N
+   energygrp-flags[  0]: 0
+
+When checking whether update groups are usable:
+  Domain decomposition is not active, so there is no need for update groups
+  No constraints or virtual sites are in use, so it is best not to use update groups
+Using 1 MPI process
+Using 48 OpenMP threads 
+
+System total charge: -13.000
+Potential shift: LJ r^-12: -1.000e+00 r^-6: -1.000e+00, Coulomb -1e+00
+Generated table with 1025 data points for 1-4 COUL.
+Tabscale = 500 points/nm
+Generated table with 1025 data points for 1-4 LJ6.
+Tabscale = 500 points/nm
+Generated table with 1025 data points for 1-4 LJ12.
+Tabscale = 500 points/nm
+
+
+Using SIMD 4x8 nonbonded short-range kernels
+
+Using a 4x8 pair-list setup:
+  updated every 10 steps, buffer 0.050 nm, rlist 1.050 nm
+
+Using Lorentz-Berthelot Lennard-Jones combination rule
+Removing pbc first time
+
+Pinning threads with an auto-selected logical cpu stride of 1
+
+Note that activating steepest-descent energy minimization via the integrator .mdp option and the command gmx mdrun may be available in a different form in a future version of GROMACS, e.g. gmx minimize and an .mdp option.
+Initiating Steepest Descents
+Started Steepest Descents on rank 0 Thu Apr  9 16:14:52 2026
+
+
+Steepest Descents:
+   Tolerance (Fmax)   =  1.00000e+00
+   Number of steps    =          500
+           Step           Time
+              0        0.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    4.85166e+04    7.69572e+03    2.41846e+04    1.58179e+02    1.27677e+04
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.24983e+05    9.24806e+11   -3.61730e+06    9.24803e+11    2.68860e+10
+
+           Step           Time
+              1        1.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    4.85410e+04    7.70899e+03    2.41889e+04    1.64131e+02    1.27673e+04
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.24985e+05    7.68354e+10   -3.61670e+06    7.68320e+10    2.23379e+09
+
+           Step           Time
+              2        2.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    4.86045e+04    7.74750e+03    2.41910e+04    1.64935e+02    1.27688e+04
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.24985e+05    5.56052e+09   -3.61669e+06    5.55712e+09    1.61671e+08
+
+           Step           Time
+              3        3.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    4.89126e+04    7.85209e+03    2.42108e+04    1.88742e+02    1.27714e+04
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.24986e+05    4.71094e+08   -3.61634e+06    4.67696e+08    1.37098e+07
+
+           Step           Time
+              4        4.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    4.94833e+04    8.01848e+03    2.42122e+04    1.83461e+02    1.27802e+04
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.24986e+05    1.28954e+08   -3.61639e+06    1.25557e+08    3.76303e+06
+
+           Step           Time
+              5        5.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    5.06131e+04    8.24597e+03    2.42339e+04    1.99523e+02    1.27906e+04
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.24991e+05    4.73774e+07   -3.61628e+06    4.39822e+07    1.39094e+06
+
+           Step           Time
+              6        6.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    5.11267e+04    8.28085e+03    2.42321e+04    1.96050e+02    1.27939e+04
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.24986e+05    2.01693e+07   -3.61631e+06    1.67746e+07    5.99880e+05
+
+           Step           Time
+              7        7.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    5.44115e+04    9.03280e+03    2.42380e+04    1.80454e+02    1.28698e+04
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.24990e+05    4.46422e+06   -3.61631e+06    1.07363e+06    1.43083e+05
+
+           Step           Time
+              8        8.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    5.73202e+04    9.35365e+03    2.43003e+04    2.34425e+02    1.28922e+04
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.24995e+05    2.46510e+06   -3.61629e+06   -9.22096e+05    8.48839e+04
+
+           Step           Time
+              9        9.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    6.56177e+04    1.10748e+04    2.43472e+04    1.96909e+02    1.37199e+04
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.24988e+05    1.24156e+06   -3.61674e+06   -2.13524e+06    4.91630e+04
+
+           Step           Time
+             10       10.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    7.33466e+04    1.17352e+04    2.43977e+04    2.22635e+02    1.38270e+04
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.24995e+05    1.11249e+06   -3.62170e+06   -2.26068e+06    4.49387e+04
+
+           Step           Time
+             11       11.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    7.37186e+04    1.20280e+04    2.43774e+04    2.20353e+02    1.44152e+04
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.25003e+05    9.59070e+05   -3.62277e+06   -2.41393e+06    4.04075e+04
+
+           Step           Time
+             12       12.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    8.09346e+04    1.39351e+04    2.43788e+04    2.23017e+02    1.47413e+04
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.24960e+05    8.48661e+05   -3.64635e+06   -2.53852e+06    3.52458e+04
+
+           Step           Time
+             13       13.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    8.15516e+04    1.40937e+04    2.43949e+04    2.29271e+02    1.44340e+04
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.24959e+05    7.92154e+05   -3.65212e+06   -2.60031e+06    3.31050e+04
+
+           Step           Time
+             14       14.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.16899e+05    2.62707e+04    2.48425e+04    4.66301e+02    1.33270e+04
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.24760e+05    7.78175e+05   -3.82607e+06   -2.74133e+06    2.02764e+04
+
+           Step           Time
+             15       15.00000
+
+           Step           Time
+             16       16.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.21478e+05    2.72632e+04    2.48575e+04    4.55543e+02    1.33658e+04
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.24752e+05    7.54964e+05   -3.82768e+06   -2.76054e+06    1.94533e+04
+
+           Step           Time
+             17       17.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.22297e+05    2.74943e+04    2.48540e+04    4.54416e+02    1.34067e+04
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.24758e+05    6.61248e+05   -3.82869e+06   -2.85418e+06    1.66459e+04
+
+           Step           Time
+             18       18.00000
+
+           Step           Time
+             19       19.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.25325e+05    3.07106e+04    2.48814e+04    4.29248e+02    1.35324e+04
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.24667e+05    6.49206e+05   -3.87251e+06   -2.90376e+06    1.33890e+04
+
+           Step           Time
+             20       20.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.32545e+05    3.48089e+04    2.48353e+04    4.45776e+02    1.32446e+04
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.24597e+05    6.49633e+05   -3.93184e+06   -2.95173e+06    9.77658e+03
+
+           Step           Time
+             21       21.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.42790e+05    3.68617e+04    2.49599e+04    4.35643e+02    1.34017e+04
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.24581e+05    6.37243e+05   -3.94466e+06   -2.96438e+06    8.61360e+03
+
+           Step           Time
+             22       22.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.48662e+05    4.27003e+04    2.47810e+04    4.50084e+02    1.31499e+04
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.24464e+05    6.51615e+05   -4.00250e+06   -2.99668e+06    5.55218e+03
+
+           Step           Time
+             23       23.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.62529e+05    4.42394e+04    2.49388e+04    4.74576e+02    1.32929e+04
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.24482e+05    6.26778e+05   -4.00802e+06   -3.01129e+06    4.44908e+03
+
+           Step           Time
+             24       24.00000
+
+           Step           Time
+             25       25.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.57349e+05    4.73537e+04    2.48193e+04    4.86995e+02    1.31206e+04
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.24390e+05    6.23740e+05   -4.03517e+06   -3.04391e+06    3.05003e+03
+
+           Step           Time
+             26       26.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.64657e+05    5.14700e+04    2.47854e+04    5.10723e+02    1.30831e+04
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.24360e+05    6.16295e+05   -4.06105e+06   -3.06589e+06    1.75391e+03
+
+           Step           Time
+             27       27.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.62016e+05    5.70929e+04    2.47761e+04    5.49955e+02    1.30405e+04
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.24202e+05    6.12707e+05   -4.09230e+06   -3.09792e+06    7.02006e+02
+
+           Step           Time
+             28       28.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.66031e+05    5.92155e+04    2.47905e+04    5.76915e+02    1.30321e+04
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.24181e+05    6.06551e+05   -4.10494e+06   -3.11056e+06    2.34785e+02
+
+           Step           Time
+             29       29.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.63439e+05    6.39196e+04    2.47783e+04    5.86850e+02    1.29358e+04
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.24074e+05    6.03189e+05   -4.12640e+06   -3.13347e+06   -2.59918e+02
+
+           Step           Time
+             30       30.00000
+
+           Step           Time
+             31       31.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.59115e+05    6.53038e+04    2.47598e+04    6.12122e+02    1.29030e+04
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.24046e+05    5.97588e+05   -4.13749e+06   -3.15316e+06   -5.18894e+02
+
+           Step           Time
+             32       32.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.57157e+05    7.55189e+04    2.47284e+04    6.54667e+02    1.27651e+04
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.23764e+05    5.91214e+05   -4.18468e+06   -3.19888e+06   -9.51104e+02
+
+           Step           Time
+             33       33.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.56235e+05    7.65248e+04    2.48537e+04    6.36127e+02    1.28737e+04
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.23688e+05    5.85756e+05   -4.19468e+06   -3.21412e+06   -1.03988e+03
+
+           Step           Time
+             34       34.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.53052e+05    7.94843e+04    2.48222e+04    6.46433e+02    1.25645e+04
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.23676e+05    5.87011e+05   -4.21295e+06   -3.23169e+06   -9.25644e+02
+
+           Step           Time
+             35       35.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.54834e+05    8.05765e+04    2.47675e+04    6.53124e+02    1.25240e+04
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.23717e+05    5.79930e+05   -4.22062e+06   -3.24362e+06   -1.15006e+03
+
+           Step           Time
+             36       36.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.54504e+05    8.65781e+04    2.47537e+04    6.68507e+02    1.22981e+04
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.23354e+05    5.88547e+05   -4.25929e+06   -3.26858e+06   -9.89887e+02
+
+           Step           Time
+             37       37.00000
+
+           Step           Time
+             38       38.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.55289e+05    8.67649e+04    2.48031e+04    6.57229e+02    1.25786e+04
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.23156e+05    5.75122e+05   -4.26054e+06   -3.28217e+06   -1.37126e+03
+
+           Step           Time
+             39       39.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.53317e+05    8.77926e+04    2.48134e+04    6.59760e+02    1.24798e+04
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.23229e+05    5.71095e+05   -4.27577e+06   -3.30238e+06   -1.46721e+03
+
+           Step           Time
+             40       40.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.66185e+05    9.19122e+04    2.48338e+04    5.82211e+02    1.24063e+04
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.23016e+05    5.68727e+05   -4.30113e+06   -3.31347e+06   -1.72098e+03
+
+           Step           Time
+             41       41.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.60693e+05    9.30815e+04    2.48196e+04    5.72505e+02    1.23320e+04
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.22959e+05    5.67583e+05   -4.31674e+06   -3.33470e+06   -1.76082e+03
+
+           Step           Time
+             42       42.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.54928e+05    9.28007e+04    2.49143e+04    5.91928e+02    1.71947e+04
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.22859e+05    5.65934e+05   -4.32826e+06   -3.34903e+06   -1.66879e+03
+
+           Step           Time
+             43       43.00000
+
+           Step           Time
+             44       44.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.52496e+05    9.28159e+04    2.49168e+04    5.91109e+02    1.21016e+04
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.22846e+05    5.64060e+05   -4.33119e+06   -3.36137e+06   -1.87217e+03
+
+           Step           Time
+             45       45.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.52569e+05    9.47794e+04    2.49198e+04    5.86556e+02    1.23602e+04
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.22753e+05    5.62367e+05   -4.35100e+06   -3.38067e+06   -1.99648e+03
+
+           Step           Time
+             46       46.00000
+
+           Step           Time
+             47       47.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.53985e+05    9.26681e+04    2.48674e+04    5.70264e+02    1.19013e+04
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.22619e+05    5.60477e+05   -4.36359e+06   -3.39650e+06   -2.07597e+03
+
+           Step           Time
+             48       48.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.53691e+05    9.49544e+04    2.48718e+04    5.76339e+02    1.27970e+04
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.22580e+05    5.59972e+05   -4.37599e+06   -3.40654e+06   -2.16877e+03
+
+           Step           Time
+             49       49.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.56898e+05    9.37391e+04    2.49041e+04    5.72345e+02    1.20173e+04
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.22514e+05    5.58276e+05   -4.38544e+06   -3.41652e+06   -2.28194e+03
+
+           Step           Time
+             50       50.00000
+
+           Step           Time
+             51       51.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.47470e+05    9.33198e+04    2.48429e+04    5.59577e+02    1.17513e+04
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.22457e+05    5.57655e+05   -4.39219e+06   -3.43413e+06   -2.26025e+03
+
+           Step           Time
+             52       52.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.60475e+05    9.46532e+04    2.48826e+04    5.63320e+02    1.16705e+04
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.22412e+05    5.56226e+05   -4.41075e+06   -3.43987e+06   -2.53763e+03
+
+           Step           Time
+             53       53.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.49169e+05    9.38699e+04    2.49445e+04    5.72856e+02    1.16398e+04
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.22337e+05    5.55944e+05   -4.41682e+06   -3.45834e+06   -2.47664e+03
+
+           Step           Time
+             54       54.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.63843e+05    9.63123e+04    2.49627e+04    5.78897e+02    1.16749e+04
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.22236e+05    5.54392e+05   -4.43375e+06   -3.45975e+06   -2.75405e+03
+
+           Step           Time
+             55       55.00000
+
+           Step           Time
+             56       56.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.48349e+05    9.37466e+04    2.49465e+04    5.74246e+02    1.15072e+04
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.22232e+05    5.54093e+05   -4.43814e+06   -3.48269e+06   -2.64801e+03
+
+           Step           Time
+             57       57.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.55516e+05    9.45002e+04    2.50208e+04    5.70809e+02    1.13787e+04
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.22119e+05    5.53172e+05   -4.45955e+06   -3.49727e+06   -2.80402e+03
+
+           Step           Time
+             58       58.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.51417e+05    9.45421e+04    2.49155e+04    5.63176e+02    1.14515e+04
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.22098e+05    5.52073e+05   -4.46809e+06   -3.51103e+06   -2.80277e+03
+
+           Step           Time
+             59       59.00000
+
+           Step           Time
+             60       60.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.49453e+05    9.38560e+04    2.48962e+04    5.53653e+02    1.14942e+04
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.22027e+05    5.51642e+05   -4.47510e+06   -3.52117e+06   -2.84985e+03
+
+           Step           Time
+             61       61.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.57327e+05    9.46789e+04    2.49254e+04    5.62904e+02    1.13679e+04
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.22011e+05    5.51086e+05   -4.48547e+06   -3.52351e+06   -2.96345e+03
+
+           Step           Time
+             62       62.00000
+
+           Step           Time
+             63       63.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.48864e+05    9.33160e+04    2.48963e+04    5.65245e+02    1.12696e+04
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.21951e+05    5.50731e+05   -4.49024e+06   -3.53865e+06   -2.95573e+03
+
+           Step           Time
+             64       64.00000
+
+           Step           Time
+             65       65.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.51475e+05    9.34139e+04    2.48396e+04    5.51086e+02    1.12038e+04
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.21931e+05    5.50246e+05   -4.49873e+06   -3.54507e+06   -3.04595e+03
+
+           Step           Time
+             66       66.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.51064e+05    9.33561e+04    2.48213e+04    5.53870e+02    1.12068e+04
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.21888e+05    5.49997e+05   -4.50488e+06   -3.55200e+06   -3.05600e+03
+
+           Step           Time
+             67       67.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.54636e+05    9.36240e+04    2.47803e+04    5.42723e+02    1.11398e+04
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.21870e+05    5.49603e+05   -4.51208e+06   -3.55588e+06   -3.14831e+03
+
+           Step           Time
+             68       68.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.55338e+05    9.37875e+04    2.47780e+04    5.56494e+02    1.11529e+04
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.21827e+05    5.49391e+05   -4.51830e+06   -3.56147e+06   -3.17858e+03
+
+           Step           Time
+             69       69.00000
+
+           Step           Time
+             70       70.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.48318e+05    9.28686e+04    2.47534e+04    5.42618e+02    1.10999e+04
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.21819e+05    5.49181e+05   -4.52174e+06   -3.57316e+06   -3.14329e+03
+
+           Step           Time
+             71       71.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.62210e+05    9.39986e+04    2.47326e+04    5.45910e+02    1.10383e+04
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.21714e+05    5.48517e+05   -4.54417e+06   -3.58141e+06   -3.38290e+03
+
+           Step           Time
+             72       72.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.50525e+05    9.29405e+04    2.47215e+04    5.33396e+02    1.09839e+04
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.21702e+05    5.48264e+05   -4.54778e+06   -3.59811e+06   -3.31278e+03
+
+           Step           Time
+             73       73.00000
+
+           Step           Time
+             74       74.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.51398e+05    9.29611e+04    2.47214e+04    5.38320e+02    1.09729e+04
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.21674e+05    5.48103e+05   -4.55356e+06   -3.60319e+06   -3.34130e+03
+
+           Step           Time
+             75       75.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.52727e+05    9.31120e+04    2.47175e+04    5.29619e+02    1.09373e+04
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.21652e+05    5.47916e+05   -4.55922e+06   -3.60763e+06   -3.39342e+03
+
+           Step           Time
+             76       76.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.54558e+05    9.32968e+04    2.47176e+04    5.39340e+02    1.09305e+04
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.21623e+05    5.47805e+05   -4.56492e+06   -3.61145e+06   -3.42511e+03
+
+           Step           Time
+             77       77.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.57429e+05    9.36333e+04    2.47161e+04    5.28529e+02    1.08934e+04
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.21604e+05    5.47634e+05   -4.57040e+06   -3.61396e+06   -3.46019e+03
+
+           Step           Time
+             78       78.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.61704e+05    9.41990e+04    2.47167e+04    5.53474e+02    1.08951e+04
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.21574e+05    5.47568e+05   -4.57604e+06   -3.61483e+06   -3.56746e+03
+
+           Step           Time
+             79       79.00000
+
+           Step           Time
+             80       80.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.49521e+05    9.27972e+04    2.47140e+04    5.34138e+02    1.08579e+04
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.21565e+05    5.47433e+05   -4.57875e+06   -3.63133e+06   -3.50033e+03
+
+           Step           Time
+             81       81.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.70314e+05    9.44414e+04    2.47152e+04    5.31783e+02    1.07807e+04
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.21439e+05    5.47280e+05   -4.60597e+06   -3.63647e+06   -3.82334e+03
+
+           Step           Time
+             82       82.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.52903e+05    9.30861e+04    2.47143e+04    5.23431e+02    1.07365e+04
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.21431e+05    5.47052e+05   -4.60894e+06   -3.65849e+06   -3.72078e+03
+
+           Step           Time
+             83       83.00000
+
+           Step           Time
+             84       84.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.53519e+05    9.30782e+04    2.47134e+04    5.27331e+02    1.07264e+04
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.21411e+05    5.46983e+05   -4.61349e+06   -3.66253e+06   -3.68867e+03
+
+           Step           Time
+             85       85.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.55408e+05    9.33492e+04    2.47157e+04    5.21858e+02    1.07027e+04
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.21394e+05    5.46898e+05   -4.61822e+06   -3.66523e+06   -3.78342e+03
+
+           Step           Time
+             86       86.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.57114e+05    9.35421e+04    2.47135e+04    5.29976e+02    1.06930e+04
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.21373e+05    5.46893e+05   -4.62286e+06   -3.66800e+06   -3.78061e+03
+
+           Step           Time
+             87       87.00000
+
+           Step           Time
+             88       88.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.50649e+05    9.28855e+04    2.47140e+04    5.23670e+02    1.06735e+04
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.21365e+05    5.46816e+05   -4.62521e+06   -3.67758e+06   -3.78550e+03
+
+           Step           Time
+             89       89.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.61668e+05    9.39632e+04    2.47142e+04    5.25327e+02    1.06144e+04
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.21286e+05    5.46877e+05   -4.64434e+06   -3.68469e+06   -3.93554e+03
+
+           Step           Time
+             90       90.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.52456e+05    9.31671e+04    2.47154e+04    5.19781e+02    1.05889e+04
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.21276e+05    5.46735e+05   -4.64705e+06   -3.69759e+06   -3.90757e+03
+
+           Step           Time
+             91       91.00000
+
+           Step           Time
+             92       92.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.53160e+05    9.32247e+04    2.47137e+04    5.21658e+02    1.05764e+04
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.21257e+05    5.46735e+05   -4.65130e+06   -3.70111e+06   -3.96419e+03
+
+           Step           Time
+             93       93.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.53892e+05    9.33384e+04    2.47154e+04    5.17457e+02    1.05585e+04
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.21242e+05    5.46697e+05   -4.65527e+06   -3.70431e+06   -3.96722e+03
+
+           Step           Time
+             94       94.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.55148e+05    9.34960e+04    2.47126e+04    5.21580e+02    1.05469e+04
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.21224e+05    5.46736e+05   -4.65940e+06   -3.70701e+06   -4.04749e+03
+
+           Step           Time
+             95       95.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.56983e+05    9.37242e+04    2.47159e+04    5.17038e+02    1.05294e+04
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.21209e+05    5.46687e+05   -4.66334e+06   -3.70898e+06   -4.02635e+03
+
+           Step           Time
+             96       96.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.59322e+05    9.40392e+04    2.47121e+04    5.24429e+02    1.05193e+04
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.21191e+05    5.46759e+05   -4.66739e+06   -3.71032e+06   -4.08741e+03
+
+           Step           Time
+             97       97.00000
+
+           Step           Time
+             98       98.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.51709e+05    9.32339e+04    2.47129e+04    5.18607e+02    1.05025e+04
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.21185e+05    5.46691e+05   -4.66940e+06   -3.72085e+06   -4.05461e+03
+
+           Step           Time
+             99       99.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.64753e+05    9.45008e+04    2.47102e+04    5.18237e+02    1.04491e+04
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.21109e+05    5.46979e+05   -4.68756e+06   -3.72454e+06   -4.22708e+03
+
+           Step           Time
+            100      100.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.53543e+05    9.35580e+04    2.47122e+04    5.13775e+02    1.04249e+04
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.21101e+05    5.46835e+05   -4.68994e+06   -3.73925e+06   -4.20571e+03
+
+           Step           Time
+            101      101.00000
+
+           Step           Time
+            102      102.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.54399e+05    9.36508e+04    2.47095e+04    5.14617e+02    1.04140e+04
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.21087e+05    5.46856e+05   -4.69375e+06   -3.74212e+06   -4.22438e+03
+
+           Step           Time
+            103      103.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.55035e+05    9.37513e+04    2.47121e+04    5.11911e+02    1.04000e+04
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.21075e+05    5.46832e+05   -4.69708e+06   -3.74477e+06   -4.28286e+03
+
+           Step           Time
+            104      104.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.56557e+05    9.39583e+04    2.47086e+04    5.14630e+02    1.03893e+04
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.21060e+05    5.46881e+05   -4.70073e+06   -3.74666e+06   -4.28481e+03
+
+           Step           Time
+            105      105.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.58354e+05    9.41779e+04    2.47124e+04    5.11726e+02    1.03765e+04
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.21049e+05    5.46840e+05   -4.70404e+06   -3.74802e+06   -4.34746e+03
+
+           Step           Time
+            106      106.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.61253e+05    9.45768e+04    2.47077e+04    5.16954e+02    1.03667e+04
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.21035e+05    5.46928e+05   -4.70762e+06   -3.74824e+06   -4.34022e+03
+
+           Step           Time
+            107      107.00000
+
+           Step           Time
+            108      108.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.52696e+05    9.36659e+04    2.47089e+04    5.12367e+02    1.03516e+04
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.21028e+05    5.46850e+05   -4.70935e+06   -3.75953e+06   -4.35544e+03
+
+           Step           Time
+            109      109.00000
+
+           Step           Time
+            110      110.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.55910e+05    9.40116e+04    2.47062e+04    5.10804e+02    1.03255e+04
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.20997e+05    5.46960e+05   -4.71772e+06   -3.76430e+06   -4.41623e+03
+
+           Step           Time
+            111      111.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.53628e+05    9.38316e+04    2.47082e+04    5.08740e+02    1.03126e+04
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.20989e+05    5.46921e+05   -4.72006e+06   -3.76916e+06   -4.44844e+03
+
+           Step           Time
+            112      112.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.57802e+05    9.42871e+04    2.47051e+04    5.09282e+02    1.02983e+04
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.20971e+05    5.47008e+05   -4.72506e+06   -3.76948e+06   -4.48513e+03
+
+           Step           Time
+            113      113.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.55259e+05    9.40608e+04    2.47082e+04    5.07068e+02    1.02861e+04
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.20962e+05    5.46964e+05   -4.72750e+06   -3.77475e+06   -4.49473e+03
+
+           Step           Time
+            114      114.00000
+
+           Step           Time
+            115      115.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.53578e+05    9.39110e+04    2.47053e+04    5.07125e+02    1.02767e+04
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.20954e+05    5.46997e+05   -4.72967e+06   -3.77874e+06   -4.51072e+03
+
+           Step           Time
+            116      116.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.57157e+05    9.42857e+04    2.47081e+04    5.05017e+02    1.02617e+04
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.20936e+05    5.47028e+05   -4.73471e+06   -3.77983e+06   -4.57426e+03
+
+           Step           Time
+            117      117.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.54788e+05    9.41034e+04    2.47041e+04    5.05742e+02    1.02495e+04
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.20927e+05    5.47072e+05   -4.73717e+06   -3.78482e+06   -4.57072e+03
+
+           Step           Time
+            118      118.00000
+
+           Step           Time
+            119      119.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.53802e+05    9.40021e+04    2.47057e+04    5.04421e+02    1.02415e+04
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.20920e+05    5.47059e+05   -4.73929e+06   -3.78806e+06   -4.61447e+03
+
+           Step           Time
+            120      120.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.56140e+05    9.42779e+04    2.47029e+04    5.04586e+02    1.02265e+04
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.20904e+05    5.47157e+05   -4.74369e+06   -3.78978e+06   -4.60309e+03
+
+           Step           Time
+            121      121.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.54823e+05    9.41525e+04    2.47054e+04    5.03470e+02    1.02174e+04
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.20895e+05    5.47126e+05   -4.74603e+06   -3.79361e+06   -4.63170e+03
+
+           Step           Time
+            122      122.00000
+
+           Step           Time
+            123      123.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.53793e+05    9.40782e+04    2.47033e+04    5.03336e+02    1.02091e+04
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.20889e+05    5.47162e+05   -4.74801e+06   -3.79667e+06   -4.67377e+03
+
+           Step           Time
+            124      124.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.55957e+05    9.43173e+04    2.47053e+04    5.02252e+02    1.01936e+04
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.20871e+05    5.47221e+05   -4.75287e+06   -3.79910e+06   -4.64878e+03
+
+           Step           Time
+            125      125.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.54546e+05    9.42166e+04    2.47023e+04    5.02100e+02    1.01831e+04
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.20864e+05    5.47261e+05   -4.75514e+06   -3.80286e+06   -4.71603e+03
+
+           Step           Time
+            126      126.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.57754e+05    9.45404e+04    2.47054e+04    5.01726e+02    1.01724e+04
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.20849e+05    5.47294e+05   -4.75900e+06   -3.80319e+06   -4.81039e+03
+
+           Step           Time
+            127      127.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.56060e+05    9.44385e+04    2.47011e+04    5.01867e+02    1.01603e+04
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.20841e+05    5.47366e+05   -4.76136e+06   -3.80729e+06   -4.82732e+03
+
+           Step           Time
+            128      128.00000
+
+           Step           Time
+            129      129.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.54270e+05    9.42518e+04    2.47026e+04    5.01300e+02    1.01532e+04
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.20834e+05    5.47356e+05   -4.76313e+06   -3.81106e+06   -4.78834e+03
+
+           Step           Time
+            130      130.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.57983e+05    9.46900e+04    2.47004e+04    5.00753e+02    1.01358e+04
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.20816e+05    5.47530e+05   -4.76823e+06   -3.81187e+06   -4.89291e+03
+
+           Step           Time
+            131      131.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.55300e+05    9.44216e+04    2.47026e+04    5.00388e+02    1.01271e+04
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.20807e+05    5.47494e+05   -4.77021e+06   -3.81686e+06   -4.84010e+03
+
+           Step           Time
+            132      132.00000
+
+           Step           Time
+            133      133.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.54693e+05    9.43967e+04    2.47001e+04    4.99634e+02    1.01186e+04
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.20800e+05    5.47548e+05   -4.77231e+06   -3.81955e+06   -4.88628e+03
+
+           Step           Time
+            134      134.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.56440e+05    9.45743e+04    2.47021e+04    4.99823e+02    1.01079e+04
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.20786e+05    5.47603e+05   -4.77572e+06   -3.82100e+06   -4.88984e+03
+
+           Step           Time
+            135      135.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.55617e+05    9.45499e+04    2.46987e+04    4.98861e+02    1.00978e+04
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.20778e+05    5.47668e+05   -4.77801e+06   -3.82410e+06   -4.94393e+03
+
+           Step           Time
+            136      136.00000
+
+           Step           Time
+            137      137.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.54508e+05    9.44342e+04    2.46998e+04    4.98822e+02    1.00918e+04
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.20772e+05    5.47669e+05   -4.77961e+06   -3.82694e+06   -4.97823e+03
+
+           Step           Time
+            138      138.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.56794e+05    9.47276e+04    2.46972e+04    4.98404e+02    1.00734e+04
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.20753e+05    5.47841e+05   -4.78464e+06   -3.82925e+06   -5.03253e+03
+
+           Step           Time
+            139      139.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.55104e+05    9.45545e+04    2.46990e+04    4.98634e+02    1.00664e+04
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.20745e+05    5.47820e+05   -4.78649e+06   -3.83300e+06   -5.04277e+03
+
+           Step           Time
+            140      140.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.58454e+05    9.49441e+04    2.46970e+04    4.97689e+02    1.00538e+04
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.20733e+05    5.47973e+05   -4.79041e+06   -3.83306e+06   -5.11071e+03
+
+           Step           Time
+            141      141.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.56369e+05    9.47302e+04    2.46993e+04    4.98348e+02    1.00462e+04
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.20723e+05    5.47955e+05   -4.79231e+06   -3.83729e+06   -5.12916e+03
+
+           Step           Time
+            142      142.00000
+
+           Step           Time
+            143      143.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.55103e+05    9.46317e+04    2.46968e+04    4.97034e+02    1.00381e+04
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.20718e+05    5.48018e+05   -4.79407e+06   -3.84037e+06   -5.13076e+03
+
+           Step           Time
+            144      144.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.57885e+05    9.49072e+04    2.46993e+04    4.98069e+02    1.00272e+04
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.20702e+05    5.48109e+05   -4.79789e+06   -3.84106e+06   -5.19330e+03
+
+           Step           Time
+            145      145.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.56071e+05    9.47789e+04    2.46959e+04    4.96357e+02    1.00172e+04
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.20697e+05    5.48183e+05   -4.79989e+06   -3.84495e+06   -5.20457e+03
+
+           Step           Time
+            146      146.00000
+
+           Step           Time
+            147      147.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.55262e+05    9.46906e+04    2.46971e+04    4.96891e+02    1.00118e+04
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.20689e+05    5.48197e+05   -4.80157e+06   -3.84752e+06   -5.24624e+03
+
+           Step           Time
+            148      148.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.57226e+05    9.49367e+04    2.46952e+04    4.95474e+02    9.99925e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.20677e+05    5.48356e+05   -4.80515e+06   -3.84876e+06   -5.26767e+03
+
+           Step           Time
+            149      149.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.56033e+05    9.48060e+04    2.46970e+04    4.96592e+02    9.99308e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.20668e+05    5.48347e+05   -4.80697e+06   -3.85193e+06   -5.27971e+03
+
+           Step           Time
+            150      150.00000
+
+           Step           Time
+            151      151.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.55311e+05    9.47676e+04    2.46954e+04    4.95459e+02    9.98601e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.20663e+05    5.48410e+05   -4.80862e+06   -3.85429e+06   -5.28703e+03
+
+           Step           Time
+            152      152.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.56933e+05    9.49366e+04    2.46968e+04    4.96327e+02    9.97511e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.20647e+05    5.48505e+05   -4.81218e+06   -3.85599e+06   -5.36782e+03
+
+           Step           Time
+            153      153.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.55912e+05    9.48811e+04    2.46943e+04    4.94454e+02    9.96672e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.20642e+05    5.48576e+05   -4.81404e+06   -3.85888e+06   -5.30641e+03
+
+           Step           Time
+            154      154.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.58327e+05    9.51237e+04    2.46964e+04    4.95853e+02    9.95954e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.20629e+05    5.48641e+05   -4.81703e+06   -3.85916e+06   -5.37516e+03
+
+           Step           Time
+            155      155.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.57147e+05    9.50646e+04    2.46930e+04    4.93462e+02    9.95002e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.20623e+05    5.48727e+05   -4.81894e+06   -3.86224e+06   -5.38483e+03
+
+           Step           Time
+            156      156.00000
+
+           Step           Time
+            157      157.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.55625e+05    9.49064e+04    2.46939e+04    4.94133e+02    9.94487e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.20617e+05    5.48739e+05   -4.82034e+06   -3.86532e+06   -5.36577e+03
+
+           Step           Time
+            158      158.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.58759e+05    9.52900e+04    2.46918e+04    4.91160e+02    9.93147e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.20601e+05    5.48953e+05   -4.82463e+06   -3.86592e+06   -5.44889e+03
+
+           Step           Time
+            159      159.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.56407e+05    9.50476e+04    2.46933e+04    4.92598e+02    9.92470e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.20593e+05    5.48934e+05   -4.82624e+06   -3.87015e+06   -5.48177e+03
+
+           Step           Time
+            160      160.00000
+
+           Step           Time
+            161      161.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.56075e+05    9.50449e+04    2.46917e+04    4.91025e+02    9.91770e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.20588e+05    5.49018e+05   -4.82801e+06   -3.87219e+06   -5.43806e+03
+
+           Step           Time
+            162      162.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.57286e+05    9.51613e+04    2.46926e+04    4.91863e+02    9.91005e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.20576e+05    5.49088e+05   -4.83054e+06   -3.87333e+06   -5.47796e+03
+
+           Step           Time
+            163      163.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.56893e+05    9.51705e+04    2.46905e+04    4.89848e+02    9.90198e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.20571e+05    5.49169e+05   -4.83247e+06   -3.87558e+06   -5.47329e+03
+
+           Step           Time
+            164      164.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.58816e+05    9.53646e+04    2.46925e+04    4.91691e+02    9.89644e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.20560e+05    5.49241e+05   -4.83481e+06   -3.87575e+06   -5.49896e+03
+
+           Step           Time
+            165      165.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.58518e+05    9.53980e+04    2.46894e+04    4.89214e+02    9.88767e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.20555e+05    5.49341e+05   -4.83674e+06   -3.87786e+06   -5.53486e+03
+
+           Step           Time
+            166      166.00000
+
+           Step           Time
+            167      167.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.55988e+05    9.51377e+04    2.46899e+04    4.90190e+02    9.88220e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.20548e+05    5.49342e+05   -4.83793e+06   -3.88185e+06   -5.53777e+03
+
+           Step           Time
+            168      168.00000
+
+           Step           Time
+            169      169.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.56701e+05    9.52472e+04    2.46887e+04    4.88659e+02    9.87233e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.20537e+05    5.49482e+05   -4.84076e+06   -3.88374e+06   -5.56228e+03
+
+           Step           Time
+            170      170.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.56374e+05    9.52208e+04    2.46892e+04    4.89311e+02    9.86678e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.20530e+05    5.49513e+05   -4.84240e+06   -3.88572e+06   -5.60113e+03
+
+           Step           Time
+            171      171.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.57432e+05    9.53841e+04    2.46879e+04    4.87397e+02    9.85825e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.20522e+05    5.49667e+05   -4.84494e+06   -3.88690e+06   -5.59662e+03
+
+           Step           Time
+            172      172.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.57047e+05    9.53426e+04    2.46886e+04    4.88820e+02    9.85270e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.20514e+05    5.49676e+05   -4.84658e+06   -3.88897e+06   -5.64842e+03
+
+           Step           Time
+            173      173.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.58706e+05    9.55687e+04    2.46870e+04    4.86880e+02    9.84481e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.20507e+05    5.49832e+05   -4.84896e+06   -3.88933e+06   -5.61729e+03
+
+           Step           Time
+            174      174.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.58435e+05    9.55305e+04    2.46883e+04    4.89486e+02    9.83943e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.20499e+05    5.49832e+05   -4.85058e+06   -3.89127e+06   -5.67194e+03
+
+           Step           Time
+            175      175.00000
+
+           Step           Time
+            176      176.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.56291e+05    9.53558e+04    2.46865e+04    4.87447e+02    9.83282e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.20495e+05    5.49898e+05   -4.85181e+06   -3.89476e+06   -5.66402e+03
+
+           Step           Time
+            177      177.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.59876e+05    9.57672e+04    2.46874e+04    4.89364e+02    9.81852e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.20475e+05    5.50147e+05   -4.85672e+06   -3.89546e+06   -5.66175e+03
+
+           Step           Time
+            178      178.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.56984e+05    9.55355e+04    2.46852e+04    4.86402e+02    9.80970e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.20472e+05    5.50194e+05   -4.85829e+06   -3.90012e+06   -5.73927e+03
+
+           Step           Time
+            179      179.00000
+
+           Step           Time
+            180      180.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.56935e+05    9.55299e+04    2.46857e+04    4.87358e+02    9.80536e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.20465e+05    5.50236e+05   -4.85993e+06   -3.90179e+06   -5.73782e+03
+
+           Step           Time
+            181      181.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.57700e+05    9.56570e+04    2.46846e+04    4.85337e+02    9.79771e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.20459e+05    5.50365e+05   -4.86201e+06   -3.90286e+06   -5.73015e+03
+
+           Step           Time
+            182      182.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.57644e+05    9.56587e+04    2.46851e+04    4.87028e+02    9.79293e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.20452e+05    5.50392e+05   -4.86369e+06   -3.90458e+06   -5.78860e+03
+
+           Step           Time
+            183      183.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.58902e+05    9.58417e+04    2.46840e+04    4.84454e+02    9.78571e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.20447e+05    5.50545e+05   -4.86570e+06   -3.90501e+06   -5.75714e+03
+
+           Step           Time
+            184      184.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.58997e+05    9.58510e+04    2.46851e+04    4.87349e+02    9.78093e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.20439e+05    5.50561e+05   -4.86735e+06   -3.90655e+06   -5.79325e+03
+
+           Step           Time
+            185      185.00000
+
+           Step           Time
+            186      186.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.56653e+05    9.56490e+04    2.46835e+04    4.85066e+02    9.77469e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.20437e+05    5.50621e+05   -4.86842e+06   -3.91012e+06   -5.78204e+03
+
+           Step           Time
+            187      187.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.60601e+05    9.61189e+04    2.46835e+04    4.86500e+02    9.75897e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.20415e+05    5.50958e+05   -4.87382e+06   -3.91080e+06   -5.79958e+03
+
+           Step           Time
+            188      188.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.57316e+05    9.58355e+04    2.46815e+04    4.83610e+02    9.75036e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.20413e+05    5.50990e+05   -4.87530e+06   -3.91583e+06   -5.83873e+03
+
+           Step           Time
+            189      189.00000
+
+           Step           Time
+            190      190.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.57396e+05    9.58275e+04    2.46817e+04    4.84850e+02    9.74605e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.20405e+05    5.51033e+05   -4.87691e+06   -3.91734e+06   -5.89486e+03
+
+           Step           Time
+            191      191.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.58015e+05    9.59481e+04    2.46804e+04    4.82921e+02    9.73896e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.20401e+05    5.51163e+05   -4.87881e+06   -3.91838e+06   -5.84423e+03
+
+           Step           Time
+            192      192.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.58136e+05    9.59445e+04    2.46808e+04    4.84568e+02    9.73475e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.20394e+05    5.51194e+05   -4.88034e+06   -3.91977e+06   -5.92649e+03
+
+           Step           Time
+            193      193.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.59203e+05    9.61137e+04    2.46792e+04    4.82072e+02    9.72815e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.20389e+05    5.51336e+05   -4.88219e+06   -3.92026e+06   -5.90171e+03
+
+           Step           Time
+            194      194.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.59570e+05    9.61293e+04    2.46802e+04    4.85032e+02    9.72416e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.20382e+05    5.51358e+05   -4.88371e+06   -3.92138e+06   -5.90573e+03
+
+           Step           Time
+            195      195.00000
+
+           Step           Time
+            196      196.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.56994e+05    9.59084e+04    2.46786e+04    4.82896e+02    9.71810e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.20380e+05    5.51418e+05   -4.88472e+06   -3.92515e+06   -5.94539e+03
+
+           Step           Time
+            197      197.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.61585e+05    9.64378e+04    2.46792e+04    4.85256e+02    9.70294e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.20355e+05    5.51784e+05   -4.89053e+06   -3.92550e+06   -5.95828e+03
+
+           Step           Time
+            198      198.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.57725e+05    9.61030e+04    2.46768e+04    4.81964e+02    9.69367e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.20354e+05    5.51831e+05   -4.89199e+06   -3.93113e+06   -5.97954e+03
+
+           Step           Time
+            199      199.00000
+
+           Step           Time
+            200      200.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.57888e+05    9.61005e+04    2.46769e+04    4.82850e+02    9.69005e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.20348e+05    5.51885e+05   -4.89361e+06   -3.93254e+06   -5.94368e+03
+
+           Step           Time
+            201      201.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.58369e+05    9.62049e+04    2.46754e+04    4.80745e+02    9.68381e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.20343e+05    5.51993e+05   -4.89532e+06   -3.93357e+06   -6.01399e+03
+
+           Step           Time
+            202      202.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.58668e+05    9.62184e+04    2.46762e+04    4.82804e+02    9.68020e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.20336e+05    5.52050e+05   -4.89678e+06   -3.93467e+06   -5.96252e+03
+
+           Step           Time
+            203      203.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.59587e+05    9.63713e+04    2.46742e+04    4.80200e+02    9.67403e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.20333e+05    5.52171e+05   -4.89848e+06   -3.93519e+06   -5.99265e+03
+
+           Step           Time
+            204      204.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.60251e+05    9.64286e+04    2.46758e+04    4.83466e+02    9.67110e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.20325e+05    5.52210e+05   -4.89994e+06   -3.93590e+06   -6.01357e+03
+
+           Step           Time
+            205      205.00000
+
+           Step           Time
+            206      206.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.57377e+05    9.61813e+04    2.46738e+04    4.81130e+02    9.66492e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.20323e+05    5.52272e+05   -4.90090e+06   -3.93993e+06   -5.99794e+03
+
+           Step           Time
+            207      207.00000
+
+           Step           Time
+            208      208.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.58443e+05    9.63082e+04    2.46739e+04    4.81627e+02    9.65559e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.20310e+05    5.52466e+05   -4.90412e+06   -3.94178e+06   -6.04103e+03
+
+           Step           Time
+            209      209.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.57682e+05    9.62727e+04    2.46724e+04    4.80491e+02    9.65018e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.20307e+05    5.52534e+05   -4.90546e+06   -3.94387e+06   -6.01149e+03
+
+           Step           Time
+            210      210.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.58965e+05    9.64143e+04    2.46728e+04    4.81692e+02    9.64503e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.20297e+05    5.52655e+05   -4.90767e+06   -3.94454e+06   -6.06956e+03
+
+           Step           Time
+            211      211.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.58215e+05    9.63844e+04    2.46710e+04    4.79547e+02    9.63948e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.20295e+05    5.52742e+05   -4.90897e+06   -3.94654e+06   -6.02530e+03
+
+           Step           Time
+            212      212.00000
+
+           Step           Time
+            213      213.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.57653e+05    9.63297e+04    2.46712e+04    4.80176e+02    9.63669e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.20291e+05    5.52780e+05   -4.90997e+06   -3.94813e+06   -6.06816e+03
+
+           Step           Time
+            214      214.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.58933e+05    9.65112e+04    2.46699e+04    4.78397e+02    9.62881e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.20283e+05    5.52980e+05   -4.91254e+06   -3.94905e+06   -6.05062e+03
+
+           Step           Time
+            215      215.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.57982e+05    9.64163e+04    2.46700e+04    4.79397e+02    9.62500e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.20277e+05    5.52999e+05   -4.91373e+06   -3.95128e+06   -6.07204e+03
+
+           Step           Time
+            216      216.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.59701e+05    9.66342e+04    2.46687e+04    4.77021e+02    9.61919e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.20271e+05    5.53185e+05   -4.91587e+06   -3.95132e+06   -6.00811e+03
+
+           Step           Time
+            217      217.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.58655e+05    9.65265e+04    2.46691e+04    4.78705e+02    9.61468e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.20266e+05    5.53202e+05   -4.91707e+06   -3.95366e+06   -6.06662e+03
+
+           Step           Time
+            218      218.00000
+
+           Step           Time
+            219      219.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.57896e+05    9.64840e+04    2.46677e+04    4.77268e+02    9.61071e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.20263e+05    5.53278e+05   -4.91811e+06   -3.95543e+06   -6.02809e+03
+
+           Step           Time
+            220      220.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.59517e+05    9.66723e+04    2.46685e+04    4.77846e+02    9.60467e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.20254e+05    5.53427e+05   -4.92042e+06   -3.95580e+06   -6.12331e+03
+
+           Step           Time
+            221      221.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.58429e+05    9.66076e+04    2.46665e+04    4.75849e+02    9.59946e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.20252e+05    5.53504e+05   -4.92168e+06   -3.95815e+06   -6.11584e+03
+
+           Step           Time
+            222      222.00000
+
+           Step           Time
+            223      223.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.58013e+05    9.65683e+04    2.46666e+04    4.76400e+02    9.59637e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.20247e+05    5.53548e+05   -4.92271e+06   -3.95960e+06   -6.06287e+03
+
+           Step           Time
+            224      224.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.59075e+05    9.67173e+04    2.46648e+04    4.75216e+02    9.58951e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.20241e+05    5.53724e+05   -4.92475e+06   -3.96026e+06   -6.12724e+03
+
+           Step           Time
+            225      225.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.58389e+05    9.66507e+04    2.46654e+04    4.76060e+02    9.58619e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.20236e+05    5.53747e+05   -4.92596e+06   -3.96221e+06   -6.09672e+03
+
+           Step           Time
+            226      226.00000
+
+           Step           Time
+            227      227.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.58024e+05    9.66369e+04    2.46642e+04    4.75214e+02    9.58272e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.20233e+05    5.53825e+05   -4.92697e+06   -3.96353e+06   -6.10959e+03
+
+           Step           Time
+            228      228.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.58879e+05    9.67426e+04    2.46644e+04    4.75872e+02    9.57668e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.20224e+05    5.53966e+05   -4.92900e+06   -3.96448e+06   -6.09064e+03
+
+           Step           Time
+            229      229.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.58334e+05    9.67176e+04    2.46626e+04    4.74433e+02    9.57263e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.20222e+05    5.54042e+05   -4.93023e+06   -3.96621e+06   -6.09349e+03
+
+           Step           Time
+            230      230.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.59445e+05    9.68339e+04    2.46634e+04    4.75892e+02    9.56848e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.20215e+05    5.54139e+05   -4.93195e+06   -3.96661e+06   -6.07130e+03
+
+           Step           Time
+            231      231.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.58973e+05    9.68308e+04    2.46611e+04    4.73628e+02    9.56331e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.20212e+05    5.54238e+05   -4.93319e+06   -3.96824e+06   -6.15577e+03
+
+           Step           Time
+            232      232.00000
+
+           Step           Time
+            233      233.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.58156e+05    9.67511e+04    2.46612e+04    4.74515e+02    9.56082e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.20208e+05    5.54266e+05   -4.93406e+06   -3.96998e+06   -6.11739e+03
+
+           Step           Time
+            234      234.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.59770e+05    9.69746e+04    2.46590e+04    4.73129e+02    9.55195e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.20198e+05    5.54548e+05   -4.93677e+06   -3.97059e+06   -6.16017e+03
+
+           Step           Time
+            235      235.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.58482e+05    9.68440e+04    2.46590e+04    4.74148e+02    9.54937e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.20195e+05    5.54534e+05   -4.93791e+06   -3.97317e+06   -6.14531e+03
+
+           Step           Time
+            236      236.00000
+
+           Step           Time
+            237      237.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.58407e+05    9.68650e+04    2.46576e+04    4.73190e+02    9.54503e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.20191e+05    5.54630e+05   -4.93908e+06   -3.97431e+06   -6.12487e+03
+
+           Step           Time
+            238      238.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.58860e+05    9.69184e+04    2.46578e+04    4.74207e+02    9.54167e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.20185e+05    5.54702e+05   -4.94050e+06   -3.97516e+06   -6.15880e+03
+
+           Step           Time
+            239      239.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.58785e+05    9.69446e+04    2.46563e+04    4.72802e+02    9.53663e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.20182e+05    5.54819e+05   -4.94178e+06   -3.97638e+06   -6.09859e+03
+
+           Step           Time
+            240      240.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.59430e+05    9.70178e+04    2.46567e+04    4.74041e+02    9.53420e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.20176e+05    5.54875e+05   -4.94313e+06   -3.97696e+06   -6.11219e+03
+
+           Step           Time
+            241      241.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.59469e+05    9.70686e+04    2.46548e+04    4.71881e+02    9.52861e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.20173e+05    5.55008e+05   -4.94441e+06   -3.97804e+06   -6.12596e+03
+
+           Step           Time
+            242      242.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.60527e+05    9.71710e+04    2.46560e+04    4.73989e+02    9.52741e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.20168e+05    5.55050e+05   -4.94571e+06   -3.97814e+06   -6.11217e+03
+
+           Step           Time
+            243      243.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.60908e+05    9.72765e+04    2.46535e+04    4.71243e+02    9.52111e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.20164e+05    5.55197e+05   -4.94704e+06   -3.97884e+06   -6.12305e+03
+
+           Step           Time
+            244      244.00000
+
+           Step           Time
+            245      245.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.58402e+05    9.70169e+04    2.46536e+04    4.72397e+02    9.51875e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.20161e+05    5.55191e+05   -4.94776e+06   -3.98235e+06   -6.14028e+03
+
+           Step           Time
+            246      246.00000
+
+           Step           Time
+            247      247.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.59310e+05    9.71607e+04    2.46512e+04    4.71321e+02    9.51165e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.20152e+05    5.55423e+05   -4.95015e+06   -3.98347e+06   -6.10089e+03
+
+           Step           Time
+            248      248.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.58615e+05    9.70822e+04    2.46515e+04    4.72073e+02    9.50946e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.20148e+05    5.55430e+05   -4.95117e+06   -3.98526e+06   -6.12932e+03
+
+           Step           Time
+            249      249.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.59814e+05    9.72580e+04    2.46495e+04    4.71061e+02    9.50316e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.20141e+05    5.55629e+05   -4.95304e+06   -3.98558e+06   -6.17912e+03
+
+           Step           Time
+            250      250.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.59033e+05    9.71719e+04    2.46500e+04    4.72200e+02    9.50171e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.20138e+05    5.55642e+05   -4.95411e+06   -3.98750e+06   -6.17904e+03
+
+           Step           Time
+            251      251.00000
+
+           Step           Time
+            252      252.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.58633e+05    9.71635e+04    2.46485e+04    4.71323e+02    9.49771e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.20135e+05    5.55724e+05   -4.95504e+06   -3.98876e+06   -6.16288e+03
+
+           Step           Time
+            253      253.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.59584e+05    9.72802e+04    2.46478e+04    4.71960e+02    9.49410e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.20129e+05    5.55854e+05   -4.95680e+06   -3.98934e+06   -6.20263e+03
+
+           Step           Time
+            254      254.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.58967e+05    9.72498e+04    2.46461e+04    4.70822e+02    9.48920e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.20125e+05    5.55943e+05   -4.95793e+06   -3.99104e+06   -6.15832e+03
+
+           Step           Time
+            255      255.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.60250e+05    9.73856e+04    2.46458e+04    4.72945e+02    9.48767e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.20121e+05    5.56038e+05   -4.95945e+06   -3.99105e+06   -6.21683e+03
+
+           Step           Time
+            256      256.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.59662e+05    9.73760e+04    2.46436e+04    4.70791e+02    9.48122e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.20116e+05    5.56142e+05   -4.96056e+06   -3.99267e+06   -6.15300e+03
+
+           Step           Time
+            257      257.00000
+
+           Step           Time
+            258      258.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.58742e+05    9.72791e+04    2.46437e+04    4.71976e+02    9.48021e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.20114e+05    5.56168e+05   -4.96134e+06   -3.99444e+06   -6.16872e+03
+
+           Step           Time
+            259      259.00000
+
+           Step           Time
+            260      260.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.58935e+05    9.73314e+04    2.46421e+04    4.71445e+02    9.47564e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.20109e+05    5.56292e+05   -4.96262e+06   -3.99537e+06   -6.14036e+03
+
+           Step           Time
+            261      261.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.58966e+05    9.73460e+04    2.46421e+04    4.72292e+02    9.47376e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.20106e+05    5.56357e+05   -4.96372e+06   -3.99635e+06   -6.19244e+03
+
+           Step           Time
+            262      262.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.59211e+05    9.73874e+04    2.46401e+04    4.71258e+02    9.46881e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.20100e+05    5.56477e+05   -4.96492e+06   -3.99717e+06   -6.16780e+03
+
+           Step           Time
+            263      263.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.59291e+05    9.74153e+04    2.46405e+04    4.72118e+02    9.46726e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.20098e+05    5.56536e+05   -4.96611e+06   -3.99819e+06   -6.17677e+03
+
+           Step           Time
+            264      264.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.59743e+05    9.74986e+04    2.46384e+04    4.70274e+02    9.46186e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.20093e+05    5.56658e+05   -4.96735e+06   -3.99879e+06   -6.22576e+03
+
+           Step           Time
+            265      265.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.59867e+05    9.75064e+04    2.46394e+04    4.71926e+02    9.46103e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.20092e+05    5.56709e+05   -4.96844e+06   -3.99969e+06   -6.17314e+03
+
+           Step           Time
+            266      266.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.60686e+05    9.76471e+04    2.46368e+04    4.69618e+02    9.45528e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.20085e+05    5.56852e+05   -4.96971e+06   -3.99988e+06   -6.24841e+03
+
+           Step           Time
+            267      267.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.61052e+05    9.76581e+04    2.46382e+04    4.71879e+02    9.45550e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.20084e+05    5.56873e+05   -4.97074e+06   -4.00050e+06   -6.19800e+03
+
+           Step           Time
+            268      268.00000
+
+           Step           Time
+            269      269.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.58905e+05    9.74850e+04    2.46359e+04    4.70106e+02    9.44987e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.20081e+05    5.56934e+05   -4.97150e+06   -4.00354e+06   -6.18678e+03
+
+           Step           Time
+            270      270.00000
+
+           Step           Time
+            271      271.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.59729e+05    9.75840e+04    2.46349e+04    4.70987e+02    9.44565e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.20075e+05    5.57169e+05   -4.97358e+06   -4.00447e+06   -6.23817e+03
+
+           Step           Time
+            272      272.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.59196e+05    9.75714e+04    2.46332e+04    4.69433e+02    9.44098e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.20071e+05    5.57192e+05   -4.97465e+06   -4.00607e+06   -6.25350e+03
+
+           Step           Time
+            273      273.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.60193e+05    9.76639e+04    2.46332e+04    4.71103e+02    9.43919e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.20068e+05    5.57324e+05   -4.97607e+06   -4.00628e+06   -6.19345e+03
+
+           Step           Time
+            274      274.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.59654e+05    9.76712e+04    2.46311e+04    4.69044e+02    9.43387e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.20064e+05    5.57394e+05   -4.97719e+06   -4.00787e+06   -6.28377e+03
+
+           Step           Time
+            275      275.00000
+
+           Step           Time
+            276      276.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.59112e+05    9.76109e+04    2.46312e+04    4.69898e+02    9.43274e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.20063e+05    5.57435e+05   -4.97793e+06   -4.00917e+06   -6.18838e+03
+
+           Step           Time
+            277      277.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.60322e+05    9.77945e+04    2.46285e+04    4.68589e+02    9.42622e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.20057e+05    5.57662e+05   -4.97986e+06   -4.00950e+06   -6.31157e+03
+
+           Step           Time
+            278      278.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.59382e+05    9.76903e+04    2.46292e+04    4.69753e+02    9.42526e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.20056e+05    5.57672e+05   -4.98083e+06   -4.01150e+06   -6.31562e+03
+
+           Step           Time
+            279      279.00000
+
+           Step           Time
+            280      280.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.59244e+05    9.77115e+04    2.46277e+04    4.68486e+02    9.42167e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.20052e+05    5.57758e+05   -4.98175e+06   -4.01247e+06   -6.29374e+03
+
+           Step           Time
+            281      281.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.59763e+05    9.77680e+04    2.46278e+04    4.69586e+02    9.41939e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.20049e+05    5.57856e+05   -4.98302e+06   -4.01306e+06   -6.28963e+03
+
+           Step           Time
+            282      282.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.59537e+05    9.77876e+04    2.46258e+04    4.67762e+02    9.41511e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.20044e+05    5.57951e+05   -4.98409e+06   -4.01426e+06   -6.32224e+03
+
+           Step           Time
+            283      283.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.60222e+05    9.78514e+04    2.46266e+04    4.69233e+02    9.41403e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.20044e+05    5.58056e+05   -4.98527e+06   -4.01459e+06   -6.29296e+03
+
+           Step           Time
+            284      284.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.60125e+05    9.79001e+04    2.46243e+04    4.66824e+02    9.40886e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.20037e+05    5.58141e+05   -4.98636e+06   -4.01566e+06   -6.28948e+03
+
+           Step           Time
+            285      285.00000
+
+           Step           Time
+            286      286.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.59257e+05    9.78073e+04    2.46246e+04    4.67707e+02    9.40796e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.20038e+05    5.58176e+05   -4.98702e+06   -4.01724e+06   -6.27515e+03
+
+           Step           Time
+            287      287.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.61075e+05    9.80694e+04    2.46207e+04    4.65710e+02    9.39944e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.20024e+05    5.58560e+05   -4.98967e+06   -4.01745e+06   -6.31658e+03
+
+           Step           Time
+            288      288.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.59512e+05    9.79031e+04    2.46218e+04    4.66943e+02    9.39779e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.20027e+05    5.58520e+05   -4.99073e+06   -4.02029e+06   -6.30719e+03
+
+           Step           Time
+            289      289.00000
+
+           Step           Time
+            290      290.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.59598e+05    9.79380e+04    2.46204e+04    4.65449e+02    9.39397e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.20021e+05    5.58618e+05   -4.99184e+06   -4.02118e+06   -6.29846e+03
+
+           Step           Time
+            291      291.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.59847e+05    9.79759e+04    2.46210e+04    4.66579e+02    9.39243e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.20021e+05    5.58688e+05   -4.99292e+06   -4.02191e+06   -6.31948e+03
+
+           Step           Time
+            292      292.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.59950e+05    9.80156e+04    2.46191e+04    4.64897e+02    9.38786e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.20015e+05    5.58802e+05   -4.99393e+06   -4.02268e+06   -6.30717e+03
+
+           Step           Time
+            293      293.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.60307e+05    9.80575e+04    2.46201e+04    4.66392e+02    9.38735e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.20016e+05    5.58864e+05   -4.99501e+06   -4.02329e+06   -6.30083e+03
+
+           Step           Time
+            294      294.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.60593e+05    9.81312e+04    2.46174e+04    4.64153e+02    9.38224e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.20007e+05    5.58985e+05   -4.99604e+06   -4.02386e+06   -6.33603e+03
+
+           Step           Time
+            295      295.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.61206e+05    9.81883e+04    2.46191e+04    4.66346e+02    9.38263e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.20011e+05    5.59046e+05   -4.99711e+06   -4.02420e+06   -6.31843e+03
+
+           Step           Time
+            296      296.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.61935e+05    9.83328e+04    2.46158e+04    4.63141e+02    9.37685e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.20000e+05    5.59188e+05   -4.99816e+06   -4.02425e+06   -6.35725e+03
+
+           Step           Time
+            297      297.00000
+
+           Step           Time
+            298      298.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.59502e+05    9.80732e+04    2.46165e+04    4.64627e+02    9.37579e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.20002e+05    5.59187e+05   -4.99878e+06   -4.02756e+06   -6.35374e+03
+
+           Step           Time
+            299      299.00000
+
+           Step           Time
+            300      300.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.60675e+05    9.82534e+04    2.46140e+04    4.64003e+02    9.36851e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.19988e+05    5.59517e+05   -5.00124e+06   -4.02836e+06   -6.36340e+03
+
+           Step           Time
+            301      301.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.59710e+05    9.81518e+04    2.46145e+04    4.64940e+02    9.36693e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.19990e+05    5.59519e+05   -5.00229e+06   -4.03048e+06   -6.37373e+03
+
+           Step           Time
+            302      302.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.61055e+05    9.83451e+04    2.46119e+04    4.63007e+02    9.36153e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.19980e+05    5.59701e+05   -5.00404e+06   -4.03053e+06   -6.35645e+03
+
+           Step           Time
+            303      303.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.60079e+05    9.82275e+04    2.46129e+04    4.64499e+02    9.36104e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.19983e+05    5.59724e+05   -5.00490e+06   -4.03245e+06   -6.38189e+03
+
+           Step           Time
+            304      304.00000
+
+           Step           Time
+            305      305.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.59842e+05    9.82444e+04    2.46113e+04    4.63395e+02    9.35767e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.19977e+05    5.59812e+05   -5.00574e+06   -4.03343e+06   -6.37135e+03
+
+           Step           Time
+            306      306.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.60525e+05    9.83074e+04    2.46116e+04    4.65065e+02    9.35618e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.19977e+05    5.59930e+05   -5.00690e+06   -4.03373e+06   -6.43796e+03
+
+           Step           Time
+            307      307.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.60146e+05    9.83195e+04    2.46095e+04    4.63154e+02    9.35185e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.19970e+05    5.60012e+05   -5.00792e+06   -4.03505e+06   -6.39299e+03
+
+           Step           Time
+            308      308.00000
+
+           Step           Time
+            309      309.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.59816e+05    9.82869e+04    2.46096e+04    4.64120e+02    9.35122e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.19970e+05    5.60050e+05   -5.00860e+06   -4.03605e+06   -6.38062e+03
+
+           Step           Time
+            310      310.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.60683e+05    9.84303e+04    2.46076e+04    4.62856e+02    9.34515e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.19960e+05    5.60262e+05   -5.01018e+06   -4.03643e+06   -6.44631e+03
+
+           Step           Time
+            311      311.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.60006e+05    9.83483e+04    2.46081e+04    4.64359e+02    9.34485e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.19961e+05    5.60268e+05   -5.01110e+06   -4.03810e+06   -6.45300e+03
+
+           Step           Time
+            312      312.00000
+
+           Step           Time
+            313      313.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.59938e+05    9.83783e+04    2.46067e+04    4.63663e+02    9.34183e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.19956e+05    5.60358e+05   -5.01196e+06   -4.03892e+06   -6.42098e+03
+
+           Step           Time
+            314      314.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.60311e+05    9.84102e+04    2.46065e+04    4.65016e+02    9.34020e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.19953e+05    5.60474e+05   -5.01302e+06   -4.03946e+06   -6.44375e+03
+
+           Step           Time
+            315      315.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.60156e+05    9.84319e+04    2.46048e+04    4.63522e+02    9.33654e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.19949e+05    5.60538e+05   -5.01400e+06   -4.04052e+06   -6.45464e+03
+
+           Step           Time
+            316      316.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.60679e+05    9.84852e+04    2.46051e+04    4.64830e+02    9.33608e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.19948e+05    5.60645e+05   -5.01505e+06   -4.04089e+06   -6.49473e+03
+
+           Step           Time
+            317      317.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.60560e+05    9.85203e+04    2.46028e+04    4.63096e+02    9.33121e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.19941e+05    5.60716e+05   -5.01598e+06   -4.04184e+06   -6.42760e+03
+
+           Step           Time
+            318      318.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.61310e+05    9.85783e+04    2.46039e+04    4.64984e+02    9.33210e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.19942e+05    5.60825e+05   -5.01696e+06   -4.04191e+06   -6.51040e+03
+
+           Step           Time
+            319      319.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.61349e+05    9.86445e+04    2.46010e+04    4.62880e+02    9.32596e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.19935e+05    5.60906e+05   -5.01791e+06   -4.04269e+06   -6.45632e+03
+
+           Step           Time
+            320      320.00000
+
+           Step           Time
+            321      321.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.60042e+05    9.85030e+04    2.46015e+04    4.64126e+02    9.32583e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.19936e+05    5.60934e+05   -5.01852e+06   -4.04471e+06   -6.46088e+03
+
+           Step           Time
+            322      322.00000
+
+           Step           Time
+            323      323.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.60587e+05    9.86138e+04    2.45999e+04    4.62955e+02    9.32086e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.19929e+05    5.61117e+05   -5.02001e+06   -4.04538e+06   -6.52766e+03
+
+           Step           Time
+            324      324.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.60181e+05    9.85465e+04    2.45999e+04    4.63810e+02    9.32064e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.19930e+05    5.61142e+05   -5.02073e+06   -4.04655e+06   -6.46641e+03
+
+           Step           Time
+            325      325.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.60925e+05    9.86773e+04    2.45980e+04    4.62438e+02    9.31611e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.19922e+05    5.61304e+05   -5.02202e+06   -4.04681e+06   -6.52391e+03
+
+           Step           Time
+            326      326.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.60473e+05    9.86036e+04    2.45984e+04    4.63881e+02    9.31646e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.19925e+05    5.61328e+05   -5.02279e+06   -4.04808e+06   -6.47096e+03
+
+           Step           Time
+            327      327.00000
+
+           Step           Time
+            328      328.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.60204e+05    9.86146e+04    2.45971e+04    4.62901e+02    9.31332e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.19921e+05    5.61398e+05   -5.02353e+06   -4.04902e+06   -6.47010e+03
+
+           Step           Time
+            329      329.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.60967e+05    9.86862e+04    2.45968e+04    4.63708e+02    9.31152e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.19918e+05    5.61556e+05   -5.02485e+06   -4.04935e+06   -6.50119e+03
+
+           Step           Time
+            330      330.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.60399e+05    9.86738e+04    2.45949e+04    4.62440e+02    9.30734e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.19914e+05    5.61619e+05   -5.02584e+06   -4.05087e+06   -6.48407e+03
+
+           Step           Time
+            331      331.00000
+
+           Step           Time
+            332      332.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.60308e+05    9.86628e+04    2.45951e+04    4.63141e+02    9.30706e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.19914e+05    5.61675e+05   -5.02656e+06   -4.05163e+06   -6.49075e+03
+
+           Step           Time
+            333      333.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.60724e+05    9.87453e+04    2.45935e+04    4.61764e+02    9.30236e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.19909e+05    5.61823e+05   -5.02766e+06   -4.05210e+06   -6.55014e+03
+
+           Step           Time
+            334      334.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.60508e+05    9.87129e+04    2.45938e+04    4.62711e+02    9.30265e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.19909e+05    5.61858e+05   -5.02854e+06   -4.05319e+06   -6.54247e+03
+
+           Step           Time
+            335      335.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.61080e+05    9.88232e+04    2.45919e+04    4.61213e+02    9.29761e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.19904e+05    5.62014e+05   -5.02963e+06   -4.05346e+06   -6.51944e+03
+
+           Step           Time
+            336      336.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.60839e+05    9.87761e+04    2.45925e+04    4.62490e+02    9.29867e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.19905e+05    5.62037e+05   -5.03041e+06   -4.05450e+06   -6.56821e+03
+
+           Step           Time
+            337      337.00000
+
+           Step           Time
+            338      338.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.60387e+05    9.87658e+04    2.45910e+04    4.61602e+02    9.29535e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.19902e+05    5.62103e+05   -5.03106e+06   -4.05555e+06   -6.56665e+03
+
+           Step           Time
+            339      339.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.61499e+05    9.89024e+04    2.45901e+04    4.61775e+02    9.29332e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.19901e+05    5.62319e+05   -5.03268e+06   -4.05572e+06   -6.62549e+03
+
+           Step           Time
+            340      340.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.60586e+05    9.88359e+04    2.45881e+04    4.60741e+02    9.28896e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.19896e+05    5.62366e+05   -5.03362e+06   -4.05760e+06   -6.59577e+03
+
+           Step           Time
+            341      341.00000
+
+           Step           Time
+            342      342.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.60576e+05    9.88272e+04    2.45882e+04    4.61287e+02    9.28864e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.19896e+05    5.62423e+05   -5.03440e+06   -4.05834e+06   -6.59162e+03
+
+           Step           Time
+            343      343.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.60913e+05    9.89023e+04    2.45862e+04    4.60391e+02    9.28465e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.19891e+05    5.62542e+05   -5.03536e+06   -4.05878e+06   -6.60052e+03
+
+           Step           Time
+            344      344.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.60808e+05    9.88810e+04    2.45869e+04    4.61199e+02    9.28495e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.19893e+05    5.62602e+05   -5.03621e+06   -4.05969e+06   -6.56882e+03
+
+           Step           Time
+            345      345.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.61301e+05    9.89788e+04    2.45845e+04    4.60112e+02    9.28017e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.19888e+05    5.62729e+05   -5.03719e+06   -4.05997e+06   -6.61598e+03
+
+           Step           Time
+            346      346.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.61208e+05    9.89500e+04    2.45856e+04    4.61230e+02    9.28153e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.19890e+05    5.62787e+05   -5.03798e+06   -4.06082e+06   -6.63635e+03
+
+           Step           Time
+            347      347.00000
+
+           Step           Time
+            348      348.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.60592e+05    9.89179e+04    2.45839e+04    4.60326e+02    9.27820e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.19887e+05    5.62835e+05   -5.03859e+06   -4.06204e+06   -6.63959e+03
+
+           Step           Time
+            349      349.00000
+
+           Step           Time
+            350      350.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.60891e+05    9.89600e+04    2.45833e+04    4.60550e+02    9.27653e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.19884e+05    5.62966e+05   -5.03972e+06   -4.06270e+06   -6.67187e+03
+
+           Step           Time
+            351      351.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.60719e+05    9.89545e+04    2.45819e+04    4.59882e+02    9.27356e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.19882e+05    5.63039e+05   -5.04048e+06   -4.06357e+06   -6.62916e+03
+
+           Step           Time
+            352      352.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.61077e+05    9.89929e+04    2.45821e+04    4.60512e+02    9.27293e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.19882e+05    5.63147e+05   -5.04145e+06   -4.06404e+06   -6.67307e+03
+
+           Step           Time
+            353      353.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.60938e+05    9.90066e+04    2.45800e+04    4.59781e+02    9.26946e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.19877e+05    5.63219e+05   -5.04229e+06   -4.06494e+06   -6.64757e+03
+
+           Step           Time
+            354      354.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.61404e+05    9.90543e+04    2.45811e+04    4.60984e+02    9.26927e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.19878e+05    5.63310e+05   -5.04324e+06   -4.06528e+06   -6.67715e+03
+
+           Step           Time
+            355      355.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.61305e+05    9.90796e+04    2.45781e+04    4.59743e+02    9.26534e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.19873e+05    5.63402e+05   -5.04405e+06   -4.06609e+06   -6.68355e+03
+
+           Step           Time
+            356      356.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.61940e+05    9.91234e+04    2.45800e+04    4.61297e+02    9.26615e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.19875e+05    5.63483e+05   -5.04490e+06   -4.06617e+06   -6.68289e+03
+
+           Step           Time
+            357      357.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.62031e+05    9.91866e+04    2.45760e+04    4.59524e+02    9.26147e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.19868e+05    5.63587e+05   -5.04579e+06   -4.06682e+06   -6.67981e+03
+
+           Step           Time
+            358      358.00000
+
+           Step           Time
+            359      359.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.60831e+05    9.90566e+04    2.45774e+04    4.60468e+02    9.26125e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.19870e+05    5.63604e+05   -5.04633e+06   -4.06867e+06   -6.66059e+03
+
+           Step           Time
+            360      360.00000
+
+           Step           Time
+            361      361.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.61297e+05    9.91292e+04    2.45753e+04    4.60038e+02    9.25716e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.19865e+05    5.63791e+05   -5.04758e+06   -4.06921e+06   -6.67118e+03
+
+           Step           Time
+            362      362.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.60979e+05    9.90908e+04    2.45759e+04    4.60388e+02    9.25674e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.19866e+05    5.63829e+05   -5.04837e+06   -4.07032e+06   -6.69679e+03
+
+           Step           Time
+            363      363.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.61657e+05    9.91983e+04    2.45732e+04    4.59215e+02    9.25270e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.19860e+05    5.63971e+05   -5.04945e+06   -4.07047e+06   -6.70510e+03
+
+           Step           Time
+            364      364.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.61252e+05    9.91471e+04    2.45743e+04    4.60112e+02    9.25288e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.19862e+05    5.64018e+05   -5.05022e+06   -4.07166e+06   -6.68875e+03
+
+           Step           Time
+            365      365.00000
+
+           Step           Time
+            366      366.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.60983e+05    9.91458e+04    2.45727e+04    4.59269e+02    9.25012e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.19859e+05    5.64081e+05   -5.05085e+06   -4.07250e+06   -6.74015e+03
+
+           Step           Time
+            367      367.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.61704e+05    9.92316e+04    2.45729e+04    4.60202e+02    9.24884e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.19858e+05    5.64251e+05   -5.05200e+06   -4.07268e+06   -6.68732e+03
+
+           Step           Time
+            368      368.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.61173e+05    9.91983e+04    2.45707e+04    4.58863e+02    9.24507e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.19854e+05    5.64297e+05   -5.05288e+06   -4.07408e+06   -6.73331e+03
+
+           Step           Time
+            369      369.00000
+
+           Step           Time
+            370      370.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.61076e+05    9.91864e+04    2.45712e+04    4.59111e+02    9.24492e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.19855e+05    5.64347e+05   -5.05351e+06   -4.07477e+06   -6.68788e+03
+
+           Step           Time
+            371      371.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.61483e+05    9.92645e+04    2.45694e+04    4.58141e+02    9.24124e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.19850e+05    5.64490e+05   -5.05448e+06   -4.07513e+06   -6.75445e+03
+
+           Step           Time
+            372      372.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.61231e+05    9.92178e+04    2.45701e+04    4.58805e+02    9.24133e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.19851e+05    5.64528e+05   -5.05520e+06   -4.07611e+06   -6.70392e+03
+
+           Step           Time
+            373      373.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.61749e+05    9.93140e+04    2.45679e+04    4.57493e+02    9.23741e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.19846e+05    5.64668e+05   -5.05619e+06   -4.07635e+06   -6.79763e+03
+
+           Step           Time
+            374      374.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.61568e+05    9.92738e+04    2.45688e+04    4.58558e+02    9.23840e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.19848e+05    5.64702e+05   -5.05686e+06   -4.07720e+06   -6.71032e+03
+
+           Step           Time
+            375      375.00000
+
+           Step           Time
+            376      376.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.61129e+05    9.92584e+04    2.45671e+04    4.57655e+02    9.23557e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.19844e+05    5.64760e+05   -5.05746e+06   -4.07821e+06   -6.74910e+03
+
+           Step           Time
+            377      377.00000
+
+           Step           Time
+            378      378.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.61338e+05    9.92874e+04    2.45670e+04    4.58073e+02    9.23443e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.19843e+05    5.64894e+05   -5.05841e+06   -4.07879e+06   -6.74722e+03
+
+           Step           Time
+            379      379.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.61256e+05    9.92927e+04    2.45657e+04    4.57236e+02    9.23185e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.19840e+05    5.64949e+05   -5.05911e+06   -4.07951e+06   -6.75230e+03
+
+           Step           Time
+            380      380.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.61501e+05    9.93044e+04    2.45662e+04    4.57967e+02    9.23137e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.19840e+05    5.65070e+05   -5.05993e+06   -4.07996e+06   -6.75470e+03
+
+           Step           Time
+            381      381.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.61419e+05    9.93238e+04    2.45641e+04    4.56946e+02    9.22834e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.19835e+05    5.65122e+05   -5.06073e+06   -4.08078e+06   -6.77077e+03
+
+           Step           Time
+            382      382.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.61733e+05    9.93430e+04    2.45648e+04    4.57756e+02    9.22823e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.19836e+05    5.65226e+05   -5.06155e+06   -4.08116e+06   -6.78072e+03
+
+           Step           Time
+            383      383.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.61676e+05    9.93644e+04    2.45621e+04    4.56769e+02    9.22482e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.19831e+05    5.65299e+05   -5.06230e+06   -4.08189e+06   -6.75406e+03
+
+           Step           Time
+            384      384.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.62166e+05    9.94071e+04    2.45637e+04    4.57782e+02    9.22571e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.19831e+05    5.65389e+05   -5.06312e+06   -4.08208e+06   -6.77658e+03
+
+           Step           Time
+            385      385.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.62210e+05    9.94521e+04    2.45603e+04    4.56231e+02    9.22119e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.19826e+05    5.65468e+05   -5.06391e+06   -4.08271e+06   -6.84160e+03
+
+           Step           Time
+            386      386.00000
+
+           Step           Time
+            387      387.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.61334e+05    9.93550e+04    2.45614e+04    4.57057e+02    9.22138e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.19828e+05    5.65490e+05   -5.06440e+06   -4.08416e+06   -6.76770e+03
+
+           Step           Time
+            388      388.00000
+
+           Step           Time
+            389      389.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.61721e+05    9.94159e+04    2.45597e+04    4.56325e+02    9.21769e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.19823e+05    5.65661e+05   -5.06554e+06   -4.08468e+06   -6.87457e+03
+
+           Step           Time
+            390      390.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.61487e+05    9.93916e+04    2.45601e+04    4.56917e+02    9.21755e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.19823e+05    5.65692e+05   -5.06625e+06   -4.08562e+06   -6.78310e+03
+
+           Step           Time
+            391      391.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.61892e+05    9.94582e+04    2.45582e+04    4.56045e+02    9.21407e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.19820e+05    5.65826e+05   -5.06714e+06   -4.08592e+06   -6.82358e+03
+
+           Step           Time
+            392      392.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.61705e+05    9.94377e+04    2.45588e+04    4.56960e+02    9.21472e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.19820e+05    5.65870e+05   -5.06787e+06   -4.08681e+06   -6.80651e+03
+
+           Step           Time
+            393      393.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.62233e+05    9.95114e+04    2.45563e+04    4.55653e+02    9.21036e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.19816e+05    5.65983e+05   -5.06872e+06   -4.08695e+06   -6.80379e+03
+
+           Step           Time
+            394      394.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.62120e+05    9.95034e+04    2.45575e+04    4.57190e+02    9.21198e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.19817e+05    5.66034e+05   -5.06945e+06   -4.08775e+06   -6.80693e+03
+
+           Step           Time
+            395      395.00000
+
+           Step           Time
+            396      396.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.61530e+05    9.94658e+04    2.45559e+04    4.56059e+02    9.20874e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.19814e+05    5.66085e+05   -5.07001e+06   -4.08890e+06   -6.76956e+03
+
+           Step           Time
+            397      397.00000
+
+           Step           Time
+            398      398.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.61751e+05    9.94949e+04    2.45559e+04    4.56957e+02    9.20787e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.19814e+05    5.66199e+05   -5.07089e+06   -4.08941e+06   -6.82121e+03
+
+           Step           Time
+            399      399.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.61633e+05    9.94973e+04    2.45544e+04    4.56136e+02    9.20497e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.19810e+05    5.66263e+05   -5.07157e+06   -4.09015e+06   -6.80203e+03
+
+           Step           Time
+            400      400.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.61954e+05    9.95295e+04    2.45545e+04    4.57195e+02    9.20524e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.19810e+05    5.66361e+05   -5.07237e+06   -4.09050e+06   -6.80374e+03
+
+           Step           Time
+            401      401.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.61828e+05    9.95367e+04    2.45527e+04    4.55941e+02    9.20151e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.19807e+05    5.66416e+05   -5.07311e+06   -4.09132e+06   -6.78561e+03
+
+           Step           Time
+            402      402.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.62209e+05    9.95800e+04    2.45535e+04    4.57608e+02    9.20258e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.19807e+05    5.66519e+05   -5.07391e+06   -4.09158e+06   -6.82534e+03
+
+           Step           Time
+            403      403.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.62134e+05    9.95996e+04    2.45510e+04    4.55947e+02    9.19769e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.19802e+05    5.66584e+05   -5.07463e+06   -4.09231e+06   -6.77870e+03
+
+           Step           Time
+            404      404.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.62656e+05    9.96375e+04    2.45523e+04    4.57597e+02    9.20007e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.19804e+05    5.66675e+05   -5.07534e+06   -4.09236e+06   -6.89173e+03
+
+           Step           Time
+            405      405.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.62749e+05    9.96908e+04    2.45495e+04    4.55687e+02    9.19379e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.19797e+05    5.66752e+05   -5.07613e+06   -4.09294e+06   -6.82127e+03
+
+           Step           Time
+            406      406.00000
+
+           Step           Time
+            407      407.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.61720e+05    9.95858e+04    2.45501e+04    4.56632e+02    9.19489e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.19799e+05    5.66772e+05   -5.07662e+06   -4.09454e+06   -6.80034e+03
+
+           Step           Time
+            408      408.00000
+
+           Step           Time
+            409      409.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.62108e+05    9.96391e+04    2.45487e+04    4.56119e+02    9.19063e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.19795e+05    5.66941e+05   -5.07763e+06   -4.09495e+06   -6.92744e+03
+
+           Step           Time
+            410      410.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.61861e+05    9.96103e+04    2.45489e+04    4.56769e+02    9.19114e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.19796e+05    5.66958e+05   -5.07830e+06   -4.09588e+06   -6.86943e+03
+
+           Step           Time
+            411      411.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.62376e+05    9.96953e+04    2.45473e+04    4.55764e+02    9.18672e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.19791e+05    5.67100e+05   -5.07919e+06   -4.09604e+06   -6.94379e+03
+
+           Step           Time
+            412      412.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.62103e+05    9.96503e+04    2.45477e+04    4.56782e+02    9.18829e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.19793e+05    5.67128e+05   -5.07981e+06   -4.09694e+06   -6.82676e+03
+
+           Step           Time
+            413      413.00000
+
+           Step           Time
+            414      414.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.61830e+05    9.96450e+04    2.45466e+04    4.55763e+02    9.18532e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.19791e+05    5.67180e+05   -5.08038e+06   -4.09774e+06   -6.87764e+03
+
+           Step           Time
+            415      415.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.62608e+05    9.97309e+04    2.45457e+04    4.56715e+02    9.18476e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.19790e+05    5.67374e+05   -5.08147e+06   -4.09778e+06   -6.90224e+03
+
+           Step           Time
+            416      416.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.61991e+05    9.96865e+04    2.45443e+04    4.55200e+02    9.18073e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.19787e+05    5.67405e+05   -5.08232e+06   -4.09927e+06   -6.90385e+03
+
+           Step           Time
+            417      417.00000
+
+           Step           Time
+            418      418.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.61969e+05    9.96823e+04    2.45445e+04    4.55885e+02    9.18087e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.19787e+05    5.67465e+05   -5.08293e+06   -4.09985e+06   -6.85517e+03
+
+           Step           Time
+            419      419.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.62223e+05    9.97379e+04    2.45427e+04    4.55095e+02    9.17755e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.19784e+05    5.67567e+05   -5.08364e+06   -4.10016e+06   -6.92007e+03
+
+           Step           Time
+            420      420.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.62122e+05    9.97088e+04    2.45431e+04    4.56041e+02    9.17818e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.19785e+05    5.67614e+05   -5.08432e+06   -4.10091e+06   -6.86765e+03
+
+           Step           Time
+            421      421.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.62463e+05    9.97685e+04    2.45412e+04    4.55029e+02    9.17439e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.19780e+05    5.67717e+05   -5.08506e+06   -4.10116e+06   -6.96445e+03
+
+           Step           Time
+            422      422.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.62418e+05    9.97596e+04    2.45417e+04    4.56186e+02    9.17565e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.19782e+05    5.67760e+05   -5.08571e+06   -4.10182e+06   -6.87579e+03
+
+           Step           Time
+            423      423.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.62901e+05    9.98394e+04    2.45396e+04    4.54618e+02    9.17130e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.19776e+05    5.67889e+05   -5.08648e+06   -4.10191e+06   -6.95641e+03
+
+           Step           Time
+            424      424.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.62957e+05    9.98318e+04    2.45405e+04    4.56117e+02    9.17349e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.19781e+05    5.67916e+05   -5.08710e+06   -4.10244e+06   -6.87779e+03
+
+           Step           Time
+            425      425.00000
+
+           Step           Time
+            426      426.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.62042e+05    9.97547e+04    2.45391e+04    4.54936e+02    9.16982e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.19777e+05    5.67969e+05   -5.08761e+06   -4.10390e+06   -6.93252e+03
+
+           Step           Time
+            427      427.00000
+
+           Step           Time
+            428      428.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.62493e+05    9.98078e+04    2.45383e+04    4.55575e+02    9.16918e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.19776e+05    5.68122e+05   -5.08861e+06   -4.10425e+06   -6.90334e+03
+
+           Step           Time
+            429      429.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.62160e+05    9.97841e+04    2.45374e+04    4.54887e+02    9.16632e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.19774e+05    5.68169e+05   -5.08929e+06   -4.10525e+06   -6.96071e+03
+
+           Step           Time
+            430      430.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.62693e+05    9.98378e+04    2.45367e+04    4.55573e+02    9.16650e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.19773e+05    5.68298e+05   -5.09012e+06   -4.10536e+06   -6.97492e+03
+
+           Step           Time
+            431      431.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.62360e+05    9.98199e+04    2.45358e+04    4.54265e+02    9.16300e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.19770e+05    5.68344e+05   -5.09077e+06   -4.10633e+06   -6.95150e+03
+
+           Step           Time
+            432      432.00000
+
+           Step           Time
+            433      433.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.62175e+05    9.98061e+04    2.45356e+04    4.54856e+02    9.16320e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.19770e+05    5.68390e+05   -5.09131e+06   -4.10702e+06   -6.92124e+03
+
+           Step           Time
+            434      434.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.62735e+05    9.98813e+04    2.45340e+04    4.53951e+02    9.15984e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.19766e+05    5.68549e+05   -5.09217e+06   -4.10709e+06   -6.98248e+03
+
+           Step           Time
+            435      435.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.62333e+05    9.98359e+04    2.45340e+04    4.54883e+02    9.16027e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.19766e+05    5.68572e+05   -5.09296e+06   -4.10831e+06   -6.94243e+03
+
+           Step           Time
+            436      436.00000
+
+           Step           Time
+            437      437.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.62269e+05    9.98472e+04    2.45333e+04    4.54126e+02    9.15817e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.19764e+05    5.68645e+05   -5.09354e+06   -4.10887e+06   -6.92137e+03
+
+           Step           Time
+            438      438.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.62615e+05    9.98779e+04    2.45328e+04    4.54852e+02    9.15768e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.19763e+05    5.68773e+05   -5.09424e+06   -4.10907e+06   -6.97952e+03
+
+           Step           Time
+            439      439.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.62405e+05    9.98755e+04    2.45319e+04    4.53785e+02    9.15501e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.19759e+05    5.68808e+05   -5.09500e+06   -4.11001e+06   -6.98587e+03
+
+           Step           Time
+            440      440.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.62809e+05    9.99141e+04    2.45311e+04    4.54682e+02    9.15543e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.19759e+05    5.68914e+05   -5.09569e+06   -4.11015e+06   -6.97087e+03
+
+           Step           Time
+            441      441.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.62614e+05    9.99059e+04    2.45304e+04    4.53723e+02    9.15220e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.19755e+05    5.68972e+05   -5.09633e+06   -4.11094e+06   -6.92336e+03
+
+           Step           Time
+            442      442.00000
+
+           Step           Time
+            443      443.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.62340e+05    9.98870e+04    2.45301e+04    4.54171e+02    9.15234e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.19756e+05    5.69007e+05   -5.09684e+06   -4.11171e+06   -6.97031e+03
+
+           Step           Time
+            444      444.00000
+
+           Step           Time
+            445      445.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.62454e+05    9.99133e+04    2.45291e+04    4.53792e+02    9.15007e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.19754e+05    5.69115e+05   -5.09750e+06   -4.11213e+06   -7.01989e+03
+
+           Step           Time
+            446      446.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.62458e+05    9.99102e+04    2.45287e+04    4.54155e+02    9.14981e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.19753e+05    5.69154e+05   -5.09804e+06   -4.11264e+06   -6.94690e+03
+
+           Step           Time
+            447      447.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.62562e+05    9.99304e+04    2.45277e+04    4.53447e+02    9.14717e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.19750e+05    5.69245e+05   -5.09868e+06   -4.11307e+06   -7.02570e+03
+
+           Step           Time
+            448      448.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.62604e+05    9.99418e+04    2.45272e+04    4.54119e+02    9.14747e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.19750e+05    5.69298e+05   -5.09933e+06   -4.11361e+06   -6.95151e+03
+
+           Step           Time
+            449      449.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.62723e+05    9.99676e+04    2.45266e+04    4.53211e+02    9.14426e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.19747e+05    5.69398e+05   -5.09999e+06   -4.11403e+06   -7.00144e+03
+
+           Step           Time
+            450      450.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.62832e+05    9.99821e+04    2.45260e+04    4.53871e+02    9.14531e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.19747e+05    5.69439e+05   -5.10062e+06   -4.11449e+06   -6.99844e+03
+
+           Step           Time
+            451      451.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.63008e+05    1.00015e+05    2.45255e+04    4.53068e+02    9.14139e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.19744e+05    5.69540e+05   -5.10126e+06   -4.11483e+06   -7.03461e+03
+
+           Step           Time
+            452      452.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.63224e+05    1.00033e+05    2.45247e+04    4.54207e+02    9.14316e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.19744e+05    5.69585e+05   -5.10188e+06   -4.11517e+06   -6.99763e+03
+
+           Step           Time
+            453      453.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.63603e+05    1.00101e+05    2.45244e+04    4.52783e+02    9.13843e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.19740e+05    5.69695e+05   -5.10258e+06   -4.11532e+06   -7.04193e+03
+
+           Step           Time
+            454      454.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.64007e+05    1.00141e+05    2.45236e+04    4.54343e+02    9.14184e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.19741e+05    5.69730e+05   -5.10317e+06   -4.11543e+06   -6.95207e+03
+
+           Step           Time
+            455      455.00000
+
+           Step           Time
+            456      456.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.62542e+05    1.00009e+05    2.45230e+04    4.53118e+02    9.13739e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.19738e+05    5.69766e+05   -5.10366e+06   -4.11749e+06   -6.97910e+03
+
+           Step           Time
+            457      457.00000
+
+           Step           Time
+            458      458.00000
+
+           Step           Time
+            459      459.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.62695e+05    1.00036e+05    2.45220e+04    4.53656e+02    9.13674e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.19737e+05    5.69881e+05   -5.10441e+06   -4.11794e+06   -7.04616e+03
+
+           Step           Time
+            460      460.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.62634e+05    1.00037e+05    2.45217e+04    4.53123e+02    9.13475e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.19735e+05    5.69924e+05   -5.10490e+06   -4.11846e+06   -6.96985e+03
+
+           Step           Time
+            461      461.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.62830e+05    1.00066e+05    2.45209e+04    4.54044e+02    9.13465e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.19735e+05    5.70021e+05   -5.10559e+06   -4.11883e+06   -7.03122e+03
+
+           Step           Time
+            462      462.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.62747e+05    1.00063e+05    2.45206e+04    4.53138e+02    9.13221e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.19732e+05    5.70077e+05   -5.10617e+06   -4.11944e+06   -6.97605e+03
+
+           Step           Time
+            463      463.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.62998e+05    1.00100e+05    2.45197e+04    4.54204e+02    9.13268e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.19732e+05    5.70159e+05   -5.10689e+06   -4.11979e+06   -7.07087e+03
+
+           Step           Time
+            464      464.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.62920e+05    1.00092e+05    2.45192e+04    4.53009e+02    9.12979e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.19729e+05    5.70218e+05   -5.10741e+06   -4.12035e+06   -7.01501e+03
+
+           Step           Time
+            465      465.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.63257e+05    1.00144e+05    2.45186e+04    4.54039e+02    9.13086e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.19730e+05    5.70285e+05   -5.10811e+06   -4.12059e+06   -7.06091e+03
+
+           Step           Time
+            466      466.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.63230e+05    1.00149e+05    2.45180e+04    4.52598e+02    9.12728e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.19726e+05    5.70364e+05   -5.10866e+06   -4.12109e+06   -7.00564e+03
+
+           Step           Time
+            467      467.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.63724e+05    1.00202e+05    2.45172e+04    4.54560e+02    9.12940e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.19727e+05    5.70433e+05   -5.10931e+06   -4.12112e+06   -7.08193e+03
+
+           Step           Time
+            468      468.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.63899e+05    1.00242e+05    2.45166e+04    4.52636e+02    9.12484e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.19722e+05    5.70521e+05   -5.10993e+06   -4.12145e+06   -7.02953e+03
+
+           Step           Time
+            469      469.00000
+
+           Step           Time
+            470      470.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.62746e+05    1.00121e+05    2.45159e+04    4.53737e+02    9.12545e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.19724e+05    5.70536e+05   -5.11037e+06   -4.12315e+06   -7.07479e+03
+
+           Step           Time
+            471      471.00000
+
+           Step           Time
+            472      472.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.63358e+05    1.00211e+05    2.45145e+04    4.53274e+02    9.12292e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.19717e+05    5.70742e+05   -5.11140e+06   -4.12328e+06   -7.07949e+03
+
+           Step           Time
+            473      473.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.62863e+05    1.00142e+05    2.45134e+04    4.53874e+02    9.12319e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.19719e+05    5.70740e+05   -5.11196e+06   -4.12441e+06   -7.06270e+03
+
+           Step           Time
+            474      474.00000
+
+           Step           Time
+            475      475.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.62876e+05    1.00165e+05    2.45132e+04    4.53396e+02    9.12144e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.19717e+05    5.70809e+05   -5.11255e+06   -4.12490e+06   -7.10300e+03
+
+           Step           Time
+            476      476.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.63123e+05    1.00192e+05    2.45120e+04    4.53691e+02    9.12103e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.19716e+05    5.70892e+05   -5.11307e+06   -4.12506e+06   -7.02211e+03
+
+           Step           Time
+            477      477.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.62976e+05    1.00190e+05    2.45118e+04    4.52978e+02    9.11880e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.19714e+05    5.70967e+05   -5.11381e+06   -4.12587e+06   -7.08882e+03
+
+           Step           Time
+            478      478.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.63297e+05    1.00241e+05    2.45110e+04    4.53866e+02    9.11894e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.19713e+05    5.71053e+05   -5.11442e+06   -4.12604e+06   -7.11380e+03
+
+           Step           Time
+            479      479.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.63166e+05    1.00232e+05    2.45111e+04    4.52760e+02    9.11628e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.19710e+05    5.71122e+05   -5.11502e+06   -4.12670e+06   -7.07920e+03
+
+           Step           Time
+            480      480.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.63604e+05    1.00281e+05    2.45097e+04    4.53932e+02    9.11721e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.19711e+05    5.71197e+05   -5.11560e+06   -4.12673e+06   -7.08649e+03
+
+           Step           Time
+            481      481.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.63522e+05    1.00288e+05    2.45100e+04    4.52762e+02    9.11378e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.19707e+05    5.71268e+05   -5.11621e+06   -4.12735e+06   -7.08481e+03
+
+           Step           Time
+            482      482.00000
+
+           Step           Time
+            483      483.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.62934e+05    1.00236e+05    2.45092e+04    4.53314e+02    9.11407e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.19709e+05    5.71296e+05   -5.11666e+06   -4.12841e+06   -7.12255e+03
+
+           Step           Time
+            484      484.00000
+
+           Step           Time
+            485      485.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.63251e+05    1.00299e+05    2.45092e+04    4.52981e+02    9.11148e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.19705e+05    5.71444e+05   -5.11746e+06   -4.12869e+06   -7.04069e+03
+
+           Step           Time
+            486      486.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.63062e+05    1.00268e+05    2.45081e+04    4.53601e+02    9.11174e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.19706e+05    5.71460e+05   -5.11796e+06   -4.12939e+06   -7.11709e+03
+
+           Step           Time
+            487      487.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.63400e+05    1.00328e+05    2.45082e+04    4.53069e+02    9.10913e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.19703e+05    5.71598e+05   -5.11864e+06   -4.12954e+06   -7.02473e+03
+
+           Step           Time
+            488      488.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.63238e+05    1.00302e+05    2.45071e+04    4.53747e+02    9.11003e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.19705e+05    5.71616e+05   -5.11916e+06   -4.13023e+06   -7.12760e+03
+
+           Step           Time
+            489      489.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.63663e+05    1.00373e+05    2.45071e+04    4.52757e+02    9.10702e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.19700e+05    5.71738e+05   -5.11987e+06   -4.13032e+06   -7.07587e+03
+
+           Step           Time
+            490      490.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.63543e+05    1.00352e+05    2.45061e+04    4.53839e+02    9.10820e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.19703e+05    5.71765e+05   -5.12035e+06   -4.13092e+06   -7.11169e+03
+
+           Step           Time
+            491      491.00000
+
+           Step           Time
+            492      492.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.63053e+05    1.00320e+05    2.45061e+04    4.53018e+02    9.10588e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.19700e+05    5.71822e+05   -5.12084e+06   -4.13188e+06   -7.13389e+03
+
+           Step           Time
+            493      493.00000
+
+           Step           Time
+            494      494.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.63279e+05    1.00345e+05    2.45047e+04    4.53429e+02    9.10531e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.19701e+05    5.71940e+05   -5.12151e+06   -4.13218e+06   -7.09123e+03
+
+           Step           Time
+            495      495.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.63159e+05    1.00345e+05    2.45049e+04    4.52805e+02    9.10344e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.19698e+05    5.71982e+05   -5.12209e+06   -4.13284e+06   -7.13045e+03
+
+           Step           Time
+            496      496.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.63459e+05    1.00382e+05    2.45038e+04    4.53110e+02    9.10325e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.19699e+05    5.72097e+05   -5.12269e+06   -4.13299e+06   -7.11229e+03
+
+           Step           Time
+            497      497.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.63293e+05    1.00372e+05    2.45039e+04    4.52590e+02    9.10129e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.19695e+05    5.72135e+05   -5.12327e+06   -4.13372e+06   -7.08181e+03
+
+           Step           Time
+            498      498.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.63634e+05    1.00403e+05    2.45025e+04    4.53363e+02    9.10183e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.19697e+05    5.72227e+05   -5.12384e+06   -4.13382e+06   -7.16072e+03
+
+           Step           Time
+            499      499.00000
+
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Per. Imp. Dih.          LJ-14
+    1.63557e+05    1.00419e+05    2.45028e+04    4.52629e+02    9.09909e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR)      Potential Pressure (bar)
+    1.19692e+05    5.72280e+05   -5.12446e+06   -4.13445e+06   -7.15847e+03
+
+           Step           Time
+            500      500.00000
+
+
+Energy minimization reached the maximum number of steps before the forces
+reached the requested precision Fmax < 1.
+
+Steepest Descents did not converge to Fmax < 1 in 501 steps.
+Potential Energy  = -4.1344548e+06
+Maximum force     =  1.3954386e+04 on atom 9309
+Norm of force     =  9.8473186e+01
+Finished mdrun on rank 0 Thu Apr  9 16:15:00 2026
+
