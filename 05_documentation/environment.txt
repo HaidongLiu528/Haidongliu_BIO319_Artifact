@@ -1,17 +1,12 @@
 ENVIRONMENT:
-
 Project: BIO319 FYP - Topiramate-BSA Glycation Blocker
 Author: Haidong Liu (ID: 2147592)
 Date: July 2026
-
 HARDWARE & OS
-
-System: XJTLU HPC Cluster (CentOS 7.9)
+System: XJTLU HPC Cluster 
 GPU: NVIDIA V100/A100
 CPU: Intel Xeon Gold 6248
-
 SOFTWARE VERSIONS
-
 GROMACS 2023.2 (GPU)     module load gromacs/2023.2-gpu
 AutoDock Vina 1.2.3      (via PyRx 0.8 GUI)
 PDBFixer 1.8             pip install pdbfixer
@@ -19,9 +14,7 @@ Open Babel 3.1.1         module load openbabel/3.1.1
 ACPYPE 2022.7.27         pip install acpype
 Python 3.9.13            module load python/3.9.13
 SLURM 20.11.9            Workload manager
-
 FORCE FIELD & PARAMETERS
-
 Protein: AMBER99SB-ILDN
 Water: SPC
 Ligand: GAFF (via ACPYPE)
