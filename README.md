@@ -6,7 +6,7 @@
 
 \*\*Supervisor\*\*: Dr. Faez Iqbal Khan
 
-\*\*Repository\*\*: https://github.com/HaidongLiu528/Haidongliu_BIO319_Artifact
+\*\*Repository\*\*: https://github.com/HaidongLiu528/BIO319_Artifact
 
 
 
@@ -516,8 +516,7 @@ The full trajectory file (`complex\_50ps.xtc.gz`, \~2.3 GB) is hosted externally
 
 All other files are available in the GitHub repository:
 
-https://github.com/HaidongLiu528/Haidongliu_BIO319_Artifact
-
+https://github.com/HaidongLiu528/BIO319_Artifact
 
 
 
